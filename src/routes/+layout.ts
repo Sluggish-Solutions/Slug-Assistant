@@ -25,5 +25,7 @@ export const load = async ({fetch, data, depends}) => {
 		setUserId(session.user.id);
 	}
 
+	return {supabase, session}
+
 }
 
