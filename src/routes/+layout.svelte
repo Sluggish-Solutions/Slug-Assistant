@@ -2,9 +2,9 @@
 	import Header from '../lib/components/home/Header.svelte'
 	import Sidebar from '../lib/components/home/Sidebar.svelte'
 	import '../app.postcss';
-
-	let open = false
 	import { onMount } from 'svelte'
+
+	$: open = false
 
 	async function detectSWUpdate() {
 		const registration = await navigator.serviceWorker.ready
