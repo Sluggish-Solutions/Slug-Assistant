@@ -31,6 +31,6 @@
 	})
 </script>
 
-<!-- <Sidebar bind:open/> -->
-<!-- <Header bind:sidebar={open}/> -->
+<Sidebar bind:open/>
+<Header bind:sidebar={open}/>
 <slot />
