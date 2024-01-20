@@ -1,9 +1,5 @@
-<svg width=auto height=30>
-	<text x=0 y=20>ACME</text>
-</svg>
+<!-- <svg width=auto height=30>
+	<text x=0 y=20>Hi</text>
+</svg> -->
 
-<style>
-	text {
-		fill: currentColor
-	}
-</style>
+<img src="main.webp" alt="logo" class="h-14 self-center rounded-2xl">
