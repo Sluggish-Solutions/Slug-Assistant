@@ -1,6 +1,7 @@
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from "$env/static/public";
 import { createSupabaseLoadClient } from "@supabase/auth-helpers-sveltekit";
 import type { Database } from "../../types/supabase.types";
+import { setUserId } from "../stores/userStore";
 //id local storage for user id?
 export const load = async ({fetch, data, depends}) => {
 	depends('supabase.auth')
@@ -15,6 +16,13 @@ export const load = async ({fetch, data, depends}) => {
 	const {
 		data: {session}
 		} = await supabase.auth.getSession();
+	
+	//setting local storage user ide
+	
+	if (session) {
+		
+		setUserId(session.user.id);
+	}
 
 }
 
