@@ -1,1 +1,79 @@
-<h1>Timer in progress</h1>
+<script>
+    const circularProgress = document.querySelectorAll(".circular-progress");
+
+Array.from(circularProgress).forEach((progressBar) => {
+  const progressValue = progressBar.querySelector(".percentage");
+  const innerCircle = progressBar.querySelector(".inner-circle");
+  let startValue = 0,
+    endValue = Number(progressBar.getAttribute("data-percentage")),
+    speed = 50,
+    progressColor = progressBar.getAttribute("data-progress-color");
+
+  const progress = setInterval(() => {
+    startValue++;
+    progressValue.textContent = `${startValue}%`;
+    progressValue.style.color = `${progressColor}`;
+
+    innerCircle.style.backgroundColor = `${progressBar.getAttribute(
+      "data-inner-circle-color"
+    )}`;
+
+    progressBar.style.background = `conic-gradient(${progressColor} ${
+      startValue * 3.6
+    }deg,${progressBar.getAttribute("data-bg-color")} 0deg)`;
+    if (startValue === endValue) {
+      clearInterval(progress);
+    }
+  }, speed);
+});
+
+</script>
+
+
+
+
+
+<div class="circular-progress" data-inner-circle-color="lightgrey" data-percentage="80" data-progress-color="crimson" data-bg-color="black">
+    <div class="inner-circle"></div>
+    <p class="percentage">0%</p>
+  
+</div>
+
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --progress-bar-width: 200px;
+  --progress-bar-height: 200px;
+  --font-size: 2rem;
+}
+
+.circular-progress {
+  width: var(--progress-bar-width);
+  height: var(--progress-bar-height);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner-circle {
+  position: absolute;
+  width: calc(var(--progress-bar-width) - 30px);
+  height: calc(var(--progress-bar-height) - 30px);
+  border-radius: 50%;
+  background-color: lightgrey;
+}
+
+.percentage {
+  position: relative;
+  font-size: var(--font-size);
+  color: rgb(0, 0, 0, 0.8);
+}
+</style>
+
+
+
