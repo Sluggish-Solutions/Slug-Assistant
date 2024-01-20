@@ -3,6 +3,8 @@ import type { PageLoad } from "./$types";
 // }
 export const load: PageLoad = async ({ parent }) => {
 const { session } = await parent();
+	// needs to load data from supabase for the messages
+	// 
 let messageFeed = [
 	{
 		id: 0,
