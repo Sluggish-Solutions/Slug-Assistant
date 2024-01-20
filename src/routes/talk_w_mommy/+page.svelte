@@ -29,6 +29,7 @@ function addMessage(): void {
 
 // once a user sends a message, we need to send / route it through server! 
 // just have an endpoint lmao
+import {useChat} from 'ai/svelte'
 </script>
 
 <div bind:this={elemChat} class="overflow-y-auto">

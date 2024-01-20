@@ -9,7 +9,7 @@
             <h1 class="mt-12">Health: </h1>
     </div>
         <div>
-            <ProgressRadial value={progress}>{progress}%</ProgressRadial>
+            <ProgressRadial meter="stroke-green-400" value={progress}>{progress}%</ProgressRadial>
         </div>
     </div>
 
@@ -19,7 +19,8 @@
             <h1 class="mt-12">Mindfullness: </h1>
     </div>
         <div>
-            <ProgressRadial value={progress}>{progress}%</ProgressRadial>
+            <ProgressRadial meter="stroke-blue-400" value={progress}>{progress}%</ProgressRadial>
+            
         </div>
     </div>
 
@@ -29,7 +30,7 @@
             <h1 class="mt-12">Schooling: </h1>
     </div>
         <div>
-            <ProgressRadial value={progress}>{progress}%</ProgressRadial>
+            <ProgressRadial meter="stroke-red-400" value={progress}>{progress}%</ProgressRadial>
         </div>
     </div>
 </div>
