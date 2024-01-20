@@ -1,1 +1,1 @@
-<h1>Slugmoomy gif maybe</h1>
+<img src="/Pixel-Art-Frog-Animation.gif" alt="Computer man" class="w-1/3">

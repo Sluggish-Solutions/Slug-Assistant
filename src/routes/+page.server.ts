@@ -13,7 +13,7 @@ export const load: PageServerLoad = async ({ url, locals: { supabase } }) => {
 		throw redirect(303, '/');
 
 	}
-	return 
+
 };
 
 
