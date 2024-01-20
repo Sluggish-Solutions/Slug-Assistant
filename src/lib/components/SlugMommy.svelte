@@ -1,1 +1,1 @@
-<img src="/Pixel-Art-Frog-Animation.gif" alt="Computer man" class="w-1/3">
+<img src="/yellow.png" alt="Computer man" class="h-5/6">
