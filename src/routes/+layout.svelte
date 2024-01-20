@@ -23,9 +23,9 @@
 		}
 	}
 
-	// onMount(() => {
-	// 	detectSWUpdate()
-	// })
+	onMount(() => {
+		detectSWUpdate()
+	})
 </script>
 
 <Header />

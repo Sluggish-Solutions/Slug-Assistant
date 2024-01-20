@@ -25,7 +25,7 @@
 					<div class="space-x-4">
 						<a
 							class="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-							href="#"
+							href="/"
 						>
 							Get Started
 						</a>
@@ -125,11 +125,11 @@
 			© 2024 Habit Tracker. All rights reserved.
 		</p>
 		<nav class="sm:ml-auto flex gap-4 sm:gap-6">
-			<a class="text-xs hover:underline underline-offset-4" href="#">
+			<a class="text-xs hover:underline underline-offset-4" href="/">
 				Privacy Policy
-			</a><a class="text-xs hover:underline underline-offset-4" href="#">
+			</a><a class="text-xs hover:underline underline-offset-4" href="/">
 				Terms of Service
-			</a><a class="text-xs hover:underline underline-offset-4" href="#">
+			</a><a class="text-xs hover:underline underline-offset-4" href="/">
 				Contact Us
 			</a>
 		</nav>
