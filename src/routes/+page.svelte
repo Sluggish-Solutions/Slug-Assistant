@@ -6,7 +6,14 @@
 
 
 <div class="flex">
-	<TaskList/>
+	<div class="w-1/3 max-h-screen">
 	<SlugMommy/>
-	<Timer/>
+	</div>
+	<div class="w-1/3 max-h-screen">
+		<Timer/>
+	</div>
+	<div class="w-1/3 max-h-screen">
+		<TaskList/>
+	</div>
+
 </div>
