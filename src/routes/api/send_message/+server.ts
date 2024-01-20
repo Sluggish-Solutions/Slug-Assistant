@@ -15,7 +15,8 @@ export const POST: RequestHandler = async (event) => {
     const request = await event.request.json()
     const user_id = request["user_id"];
     const message = request["message"];
-
+    
+    
     // sending to supabase
     // const { data, error } = await event.locals.supabase
     //     .from("comments")
@@ -34,7 +35,7 @@ export const POST: RequestHandler = async (event) => {
     //
     //
     // then you return the message returned by gpt and the message
-    // you send to supabase
+   // you send to supabase
 
 
     return json({ success: true,  comment: "work in progress" })

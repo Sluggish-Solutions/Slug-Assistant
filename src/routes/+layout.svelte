@@ -1,6 +1,11 @@
-<script lang="ts">
+<script>
+	import Header from '../lib/components/home/Header.svelte'
+	import Sidebar from '../lib/components/home/Sidebar.svelte'
 	import '../app.postcss';
-	import Header from "$lib/components/home/Header.svelte";
+
+	let open = false
 </script>
-<Header />
+
+<Sidebar bind:open/>
+<Header bind:sidebar={open}/>
 <slot />
