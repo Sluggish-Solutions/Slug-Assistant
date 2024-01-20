@@ -1,10 +1,15 @@
 
 import { json, type RequestHandler } from '@sveltejs/kit'
-
+import OpenAI from 'openai'
+import {OpenAIStream, StreamingTextResponse} from 'ai'
+import { OPEN_AI_KEY } from '$env/static/private';
 import type { Config } from '@sveltejs/adapter-vercel';
 export const config: Config = {
 	runtime: 'edge'
 };
+const openai = new OpenAI({
+    apiKey: OPEN_AI_KEY
+})
 export const POST: RequestHandler = async (event) => {
     // const data = await event.request.formData();
     const request = await event.request.json()
@@ -31,7 +36,6 @@ export const POST: RequestHandler = async (event) => {
     // then you return the message returned by gpt and the message
     // you send to supabase
 
-    //console.log("data returned from insert", data);
 
-    return json({ success: true,  comment: data })
+    return json({ success: true,  comment: "work in progress" })
 }

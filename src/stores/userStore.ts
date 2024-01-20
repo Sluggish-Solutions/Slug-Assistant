@@ -7,4 +7,4 @@ export const setUserId = (id: string)=> {
 
 }
 
-
+// might want to store the most recently sent messages here?
