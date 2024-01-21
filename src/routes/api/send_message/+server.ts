@@ -14,11 +14,29 @@ const openai = new OpenAI({
     apiKey: OPEN_AI_KEY || '',
 });
 
-export const config: Config = {
-    runtime: 'edge'
-};
 
-export const POST: RequestHandler = async ({ request }) => {
+function manageTokenCount(newMessage, messageHistory) {
+    let tokenCount = getTokens(newMessage.content);
+
+    // Start with the newest message and go backwards in history
+    for (let i = messageHistory.length - 1; i >= 0; i--) {
+        tokenCount += getTokens(messageHistory[i].content);
+        if (tokenCount >= 4000) {
+            break;
+        }
+    }    
+    
+    messageHistory.shift(); 
+    // Remove the oldest thing in the message history until we get below 4000 tokens
+    // while (tokenCount >= 4000 && messageHistory.length > 0) {
+    //     tokenCount -= getTokens(messageHistory[0].body);
+    //     messageHistory.shift();  
+    // }
+    // Add the new message to the history
+    // messageHistory.push(newMessage);
+    return messageHistory;
+}
+export const POST: RequestHandler = async ({ locals, request }) => {
     try {
         const requestData = await request.json();
         const { conversation_id, messages } = requestData;
@@ -26,17 +44,10 @@ export const POST: RequestHandler = async ({ request }) => {
 
         // Calculate the total token count for the conversation
         let tokenCount = 0;
-        const previousMessages = await supabase.from("messages")
-                                               .select("body")
-                                               .eq("conversation_id", conversation_id);
-        if (previousMessages.data) {
-            previousMessages.data.forEach(msg => {
-                tokenCount += getTokens(msg.body);
-            });
-        }
 
         // Process new messages and check token count
         for (const message of messages) {
+            const updatedMessages = manageTokenCount(message, requestData.message_history || []);
             tokenCount += getTokens(message.content);
             if (tokenCount >= 4000) {
                 throw new Error('Token limit exceeded');

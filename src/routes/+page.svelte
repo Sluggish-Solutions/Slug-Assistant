@@ -1,6 +1,6 @@
 <script lang="ts">
 	import SlugMommy from '$lib/components/SlugMommy.svelte'
-	import Timer from '$lib/components/Timer.svelte'
+	import Timer from '$lib/components/Radial.svelte'
 	import TaskList from '$lib/components/TaskList.svelte'
 	import { onMount } from 'svelte'
 
