@@ -30,7 +30,7 @@
 
 {#if condition}
 	<h1
-		class="flex items-center justify-center bg-black py-5 px-8 rounded-lg m-5 mx-2 gap-3 text-2xl"
+		class="flex items-center justify-center bg-black py-5 px-8 rounded-lg m-5 mx-2 gap-3 text-2xl border-2 border-white"
 	>
 		Tasks
 
@@ -44,7 +44,7 @@
 		out:fly={{ x: -100, duration: 3000, easing: quintOut }}
 	>
 		<div
-			class="flex flex-col gap-5 p-5 mx-3 max-h-[60vh] overflow-y-auto rounded-xl border-4"
+			class="flex flex-col gap-5 p-5 mx-3 max-h-[60vh] overflow-y-auto rounded-xl border-4 border-purple-700"
 		>
 			{#each todos as todo}
 				<Task name={todo.name} completed={todo.completed} />

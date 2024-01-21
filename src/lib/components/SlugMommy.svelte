@@ -16,6 +16,9 @@
   }
 </script>
 
-<div>
+<!-- <div>
   <img src={URL} alt="notworking" class="display:{display1}" />
+</div> -->
+<div class="flex w-full justify-center py-10">
+  <img src="sprites/food.png" alt="notworking"/>
 </div>
