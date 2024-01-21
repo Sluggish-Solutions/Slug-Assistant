@@ -29,11 +29,6 @@ export const add_message_to_store = (mommy: boolean, new_message: string) => {
 	}
 	old_array.push(new_message)
 	prev_messages.set(old_array)
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 4d1ba90b9230a65f08fdbf2494a285d1975412e9
 }
 
 export const get_prev_messages = () => {
