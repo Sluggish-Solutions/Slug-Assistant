@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { ProgressRadial } from '@skeletonlabs/skeleton'
 	import { ProgressBar } from '@skeletonlabs/skeleton'
-	export let progress:number;
-	export let color:string;
+	export let progress: number
+	export let color: string
 	export let title:string;
 </script>
 
@@ -15,4 +15,8 @@
 				>{progress}%</ProgressRadial>
 		</div>
 	</div>
-
+	<div class="z-[-10]">
+		<ProgressRadial meter={color} value={progress}>{progress}%</ProgressRadial
+		>
+	</div>
+</div>
