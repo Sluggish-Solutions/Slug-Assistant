@@ -2,6 +2,7 @@
 	import SlugMommy from '$lib/components/SlugMommy.svelte'
 	import Timer from '$lib/components/Radial.svelte'
 	import TaskList from '$lib/components/TaskList.svelte'
+	import Typewriter from '$lib/components/Typewriter.svelte';
 	import { onMount } from 'svelte'
 
 	const reqNotif = async () => {
@@ -121,6 +122,8 @@
 				>Do Your Homework</button
 			>
 		</div>
+
+		<Typewriter text={"custom text goes here"} />
 	</div>
 
 	<div class="lg: w-full max-h-screen">
