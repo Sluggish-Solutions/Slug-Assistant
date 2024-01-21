@@ -18,7 +18,7 @@
 	}
 </script>
 
-<main class="w-full">
+<main class="w-full h-full flex flex-col justify-center items-center">
 	<table class="m-auto">
 		<tr>
 			<th>Task Name</th>
@@ -31,9 +31,11 @@
 		<TaskTableRow bind:taskObj={taskObj_sample} />
 	</table>
 
-	<button class="btn variant-filled-primary" on:click={saveSettings}
-		>Save Settings</button
-	>
+
+		<button class="btn variant-filled-primary w-1/4 my-5" on:click={saveSettings}
+			>Save Settings</button>
+	
+
 </main>
 
 <style>
