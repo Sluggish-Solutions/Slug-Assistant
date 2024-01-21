@@ -17,28 +17,116 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 	'tasks',
 	[
 		{
-		task_name: 'Brush Teeth',
-		enabled: true,
-		last_updated: '2021-10-10',
-		success: 3,
-		occurences: 10,
+			task_name: 'Water Intake',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+		{
+			task_name: 'Food Intake',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+		{
+			task_name: 'Exersize',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+		{
+			task_name: 'Meditation',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+		{
+			task_name: 'Reflection',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+		{
+			task_name: 'Socailizing',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+		{
+			task_name: 'Letures',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+		{
+			task_name: 'Study/Homework',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+
+		{
+			task_name: 'Leetcode',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+
+		{
+			task_name: 'Socailizing',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+		{
+			task_name: 'Laundry',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+		{
+			task_name: 'Cleaning',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
+		} as Task,
+
+		{
+			task_name: 'Brush Teeth',
+			enabled: false,
+			last_updated: '',
+			success: 0,
+			occurences: 0,
 		} as Task
+
 
 
 	]
 )
 
-export const add_task = (newTask: Task) =>{
-let old_tasks = [...get(tasks)]
+export const add_task = (newTask: Task) => {
+	let old_tasks = [...get(tasks)]
 	old_tasks.unshift(newTask);
 	tasks.set(old_tasks);
 }
 
-export const edit_task = (idx: number, editedTask: Task) =>{
+export const edit_task = (idx: number, editedTask: Task) => {
 	let old_tasks = [...get(tasks)]
 
-	old_tasks.splice(idx,1)
-	
+	old_tasks.splice(idx, 1)
+
 	let new_arr = [
 		...old_tasks.slice(0, idx),
 		editedTask,
@@ -54,9 +142,9 @@ export const edit_task = (idx: number, editedTask: Task) =>{
 export const delete_task = (idx: number) => {
 
 	let old_tasks = [...get(tasks)]
-if (idx > -1) { // only splice array when item is found
-  old_tasks.splice(idx, 1); // 2nd parameter means remove one item only
-}
+	if (idx > -1) { // only splice array when item is found
+		old_tasks.splice(idx, 1); // 2nd parameter means remove one item only
+	}
 	tasks.set(old_tasks);
 }
 
