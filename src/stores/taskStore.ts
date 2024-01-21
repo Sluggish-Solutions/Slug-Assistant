@@ -27,7 +27,7 @@ export const tasks: Writable<Task[]> = writable([
 		id: 2,
 		task_name: 'Wash Face',
 		enabled: false,
-		last_updated: Date.now().toString(),
+		last_updated: `${Date.now()}`,
 		success: 0,
 		occurences: 0,
 	} as Task,
