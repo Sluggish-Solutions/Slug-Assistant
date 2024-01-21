@@ -19,7 +19,6 @@
 			<th>Task Name</th>
 			<th>Enabled</th>
 			<th>Completed Today</th>
-			<th>Last Update</th>
 			<th>Success</th>
 		</tr>
 

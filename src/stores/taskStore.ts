@@ -22,7 +22,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: true,
 		completed_today: false,
 		group: 'Health',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -31,7 +31,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: true,
 		completed_today: false,
 		group: 'Health',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -40,7 +40,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: true,
 		completed_today: false,
 		group: 'Health',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -49,7 +49,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: true,
 		completed_today: false,
 		group: 'Mindfulness',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -58,7 +58,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: true,
 		completed_today: false,
 		group: 'Mindfulness',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -67,7 +67,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Mindfulness',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -76,7 +76,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Academics',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -85,7 +85,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Academics',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -94,7 +94,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Academics',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -103,7 +103,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Chores',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -112,7 +112,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Chores',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 	{
@@ -121,7 +121,7 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Chores',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
 	} as Task,
 ])
@@ -151,10 +151,24 @@ export const toggle_completed_today = (id: number) => {
 					...task,
 					completed_today: !task.completed_today,
 					success: task.completed_today ? task.success - 1 : task.success + 1,
-					last_updated: `${Date.now()}`,
+					last_updated: `${new Date(new Date(Date.now()).getDay()).getDay()}`,
 				}
 			}
 			return task
+		})
+		localStorage.setItem('tasks', JSON.stringify(updatedTasks))
+		return updatedTasks
+	})
+}
+
+// daily reset
+export const reset_completed_today = () => {
+	tasks.update((tasks) => {
+		const updatedTasks = tasks.map((task) => {
+			return {
+				...task,
+				completed_today: new Date(Date.now()).getDay() - Number(task.last_updated) > 86400000 ? false : task.completed_today,
+			}
 		})
 		localStorage.setItem('tasks', JSON.stringify(updatedTasks))
 		return updatedTasks
