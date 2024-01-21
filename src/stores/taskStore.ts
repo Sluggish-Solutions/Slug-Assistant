@@ -7,7 +7,7 @@ export const curr_user_id = writable('')
 export const convo_id = writable('')
 export const first_time = writable(true);
 export type Task = {
-	task_name: String,
+	task_name: string,
 	enabled: boolean,
 	last_updated: string,
 	success: number,
@@ -36,9 +36,16 @@ let old_tasks = [...get(tasks)]
 
 export const edit_task = (idx: number, editedTask: Task) =>{
 	let old_tasks = [...get(tasks)]
-	let first_half =  old_tasks.slice(idx)
-	let second_half =  old_tasks.slice(idx+1, old_tasks.length)
-	let new_arr = [...first_half, editedTask, ...second_half]
+
+	old_tasks.splice(idx,1)
+	
+	let new_arr = [
+		...old_tasks.slice(0, idx),
+		editedTask,
+		...old_tasks.slice(idx)
+	]
+
+
 
 	tasks.set(new_arr);
 
