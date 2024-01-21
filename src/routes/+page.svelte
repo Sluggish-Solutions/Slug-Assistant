@@ -5,6 +5,11 @@
   import Typewriter from "$lib/components/Typewriter.svelte";
   import { setUserId } from "../stores/userStore";
   import { onMount } from "svelte";
+  import { fly } from 'svelte/transition'
+	import { quintOut } from 'svelte/easing'
+  import Type from "$lib/components/Type.svelte";
+
+  let condition = false;
 
   let quote: string = "You are amazing!";
 
@@ -110,6 +115,10 @@
     "Your potential knows no boundaries.",
     "Embrace the journey, embrace the joy.",
   ];
+
+  onMount(() => {
+		condition = true
+	})
 
   setInterval(() => {
     quote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -238,8 +247,12 @@
 		
 	</div>
 
-	<div class="lg: w-full max-h-screen">
-		<h1 class="flex items-center justify-center bg-black py-5 px-8 rounded-lg m-5 mx-2 gap-3 text-2xl border-2 border-white">Stats</h1>
+{#if condition}
+<div
+in:fly={{ x: 100, duration: 3000, easing: quintOut }}
+out:fly={{ x: -100, duration: 3000, easing: quintOut }}
+class="lg: w-full max-h-screen">
+		<h1 class="flex items-center justify-center bg-black py-5 px-8 rounded-lg m-5 mx-2 gap-3 text-2xl border-2 border-white"><Type text="Stats"/></h1>
 		<div class="flex flex-col border-4 border-purple-700 rounded-lg px-10 py-12">
 			<div class="flex justify-center my-2.5">
 			  <Radial progress={50} color="stroke-green-600" title="Health" />
@@ -250,5 +263,7 @@
 			  <Radial progress={50} color="stroke-purple-600" title="Chores" />
 			</div>
 		</div>
-	</div>
+  </div>
+  {/if}
 </div>
+

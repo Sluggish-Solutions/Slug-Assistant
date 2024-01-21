@@ -4,9 +4,10 @@
 	import { onMount } from 'svelte'
 	import Task from './Task.svelte'
 	import { Settings } from 'lucide-svelte'
+    import Type from './Type.svelte';
 
 	let condition = false
-
+ 
 	onMount(() => {
 		condition = true
 	})
@@ -29,20 +30,18 @@
 </script>
 
 {#if condition}
-	<h1
-		class="flex items-center justify-center bg-black py-5 px-8 rounded-lg m-5 mx-2 gap-3 text-2xl border-2 border-white"
-	>
-		Tasks
 
-		<a href="/settings">
-			<Settings />
-		</a>
-	</h1>
 
 	<div
-		in:fly={{ x: 100, duration: 3000, easing: quintOut }}
-		out:fly={{ x: -100, duration: 3000, easing: quintOut }}
+		in:fly={{ x: -100, duration: 3000, easing: quintOut }}
+		out:fly={{ x: 100, duration: 3000, easing: quintOut }}
 	>
+	<h1
+	class="flex items-center justify-center bg-black py-5 px-8 rounded-lg m-5 mx-2 gap-3 text-2xl border-2 border-white"
+>
+	<Type text="Tasks"/>
+
+</h1>
 		<div
 			class="flex flex-col gap-5 p-5 mx-3 max-h-[60vh] overflow-y-auto rounded-xl border-4 border-purple-700"
 		>
