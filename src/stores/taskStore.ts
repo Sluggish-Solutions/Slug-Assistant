@@ -1,5 +1,7 @@
 import type { Writable } from 'svelte/store'
 import { writable } from 'svelte/store'
+import { browser } from '$app/environment'
+
 // import { localStorageStore } from '@skeletonlabs/skeleton'
 export const curr_user_id = writable('')
 export const convo_id = writable('')
@@ -150,8 +152,12 @@ export const toggle_completed_today = (id: number) => {
 				return {
 					...task,
 					completed_today: !task.completed_today,
-					success: task.completed_today ? task.success - 1 : task.success + 1,
-					last_updated: `${new Date(new Date(Date.now()).getDay()).getDay()}`,
+					success: task.completed_today
+						? task.success - 1
+						: task.success + 1,
+					last_updated: `${new Date(
+						new Date(Date.now()).getDay()
+					).getDay()}`,
 				}
 			}
 			return task
@@ -161,13 +167,16 @@ export const toggle_completed_today = (id: number) => {
 	})
 }
 
-// daily reset
 export const reset_completed_today = () => {
 	tasks.update((tasks) => {
 		const updatedTasks = tasks.map((task) => {
 			return {
 				...task,
-				completed_today: new Date(Date.now()).getDay() - Number(task.last_updated) > 86400000 ? false : task.completed_today,
+				completed_today:
+					new Date(Date.now()).getDay() - Number(task.last_updated) >
+					86400000
+						? false
+						: task.completed_today,
 			}
 		})
 		localStorage.setItem('tasks', JSON.stringify(updatedTasks))
