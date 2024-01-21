@@ -72,8 +72,8 @@ function addMessage(): void {
 	});
 </script>
 
-<div bind:this={elemChat} class="overflow-y-auto">
-	<section class="w-full max-h-[400px] p-4 overflow-y-auto space-y-4">
+<div bind:this={elemChat} class="container overflow-y-auto">
+	<section class="w-full max-h-[80vh] p-4 overflow-y-auto space-y-4">
 		{#if all_messages}
 			{#each all_messages as bubble, i}
 				{#if bubble.author}
