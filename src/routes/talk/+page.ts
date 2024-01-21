@@ -1,6 +1,7 @@
-import { add_message_to_store, curr_user_id, get_prev_messages,  } from "../../stores/userStore";
+import { add_message_to_store, convo_id, curr_user_id, get_prev_messages, setConvoId,  } from "../../stores/userStore";
 import type { PageLoad } from "./$types";
 import {get} from 'svelte/store'
+import { fail } from "@sveltejs/kit";
 // }
 const sendMessage = async( curr_message: string) => {
 	//get array of local storage messages
@@ -10,7 +11,7 @@ const sendMessage = async( curr_message: string) => {
 	console.log(curr_message)
 	console.log(prev_messages)
 	let user_id = get(curr_user_id)
-	
+	let curr_convo_id = get(convo_id)
 
 	const res = await fetch('/api/send_message ', {
 		method: 'POST',
@@ -18,6 +19,7 @@ const sendMessage = async( curr_message: string) => {
 			"user_id": user_id,
 			"new_message": curr_message,
 			"prev_messages": prev_messages,
+			"convo_id": curr_convo_id
 		})
 	})
 	const response = await res.json()
@@ -31,11 +33,34 @@ const sendMessage = async( curr_message: string) => {
 }
 	//save and return back whatever we get back
 export const load: PageLoad = async ({ parent }) => {
-const { session } = await parent();
+const { supabase, session } = await parent();
 	// needs to load data from supabase for the messages
 	// need to filter time stamp / library / something like that 
 	// need to load messages from the previous thing
+ const curr_convo_id = get(convo_id)
+
+	if(curr_convo_id === ''){
+		// make request to supabase to create a thingy
+		const convo_creation = await supabase.from("conversation").insert({user: session?.user.id}).select().single()
+
+		if (convo_creation.error) {
+			return fail(404, {
+				error: "unauthorized"
+			})
+		}
+
+		setConvoId(convo_creation.data.id.toString())
+	}
+
+	const preMessagesQuery = await supabase.from('messages').select(`*, author(*)`).eq(`author`, curr_user_id)
+
+	let newMessageFeed = preMessagesQuery.data
+
+	console.log(newMessageFeed)
+	
+
 let messageFeed = [
+
 	{
 		id: 0,
 		host: true,

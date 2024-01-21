@@ -3,11 +3,15 @@ import { writable } from 'svelte/store';
 import { localStorageStore } from '@skeletonlabs/skeleton';
 import {get} from 'svelte/store'
 export const curr_user_id = writable('')
+export const convo_id = writable('')
 
 const prev_messages: Writable<Array<string>> = localStorageStore('previous_messages', ['', 'wahoooooo', 'penis!!!!!!!', 'i love mommmyyy!!!!'])
 export const setUserId = (id: string) => {
 	curr_user_id.set(id)
 
+}
+export const setConvoId =(id: string) => {
+	convo_id.set(id)
 }
 
 export const add_message_to_store = (mommy: boolean, new_message: string) =>{
@@ -27,7 +31,7 @@ export const add_message_to_store = (mommy: boolean, new_message: string) =>{
 	old_array.push(new_message)
 	prev_messages.set(old_array)
 
-	
+
 }
 
 export const get_prev_messages = () =>{
