@@ -12,7 +12,7 @@
 	</nav>
 	
 	<nav class="hidden uppercase text-bold text-2xl sm:block p-5">
-		<a href="/about">About</a>
+		<a href="/chat">Chat</a>
 		<a href="/contact">Contact</a>
 	</nav>
 
