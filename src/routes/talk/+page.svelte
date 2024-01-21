@@ -37,7 +37,6 @@ function addMessage(): void {
 // once a user sends a message, we need to send / route it through server! 
 // just have an endpoint lmao
 import {useChat} from 'ai/svelte'
-    import { convo_id } from "$stores/userStore.js";
 	let all_messages = data.newMessageFeed;
 	console.log(all_messages)
 
@@ -51,7 +50,7 @@ import {useChat} from 'ai/svelte'
 				event: 'INSERT',
 				schema: 'public',
 				table: 'messages',
-				filter: 'conversation_id=eq.' + get(convo_id)
+				filter: 'conversation_id=eq.' + data.curr_convo_id
 			},
 			async (payload) => {
 				let new_message = await data.supabase
@@ -103,5 +102,5 @@ console.log(all_messages)
 		placeholder="Write a message..."
 		rows="1"
 	/>
-	<button class="variant-filled-primary" on:click={async()=>{data.sendMessage(currentMessage)}}>Send</button>
+	<button class="variant-filled-primary" on:click={async()=>{data.sendMessage(currentMessage, data.curr_convo_id)}}>Send</button>
 </div>
