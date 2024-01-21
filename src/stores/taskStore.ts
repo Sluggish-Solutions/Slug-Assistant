@@ -22,6 +22,8 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Health"
 		} as Task,
 		{
 			task_name: 'Food Intake',
@@ -29,6 +31,8 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Health"
 		} as Task,
 		{
 			task_name: 'Exersize',
@@ -36,6 +40,8 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Health"
 		} as Task,
 		{
 			task_name: 'Meditation',
@@ -43,6 +49,8 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Mindfulness"
 		} as Task,
 		{
 			task_name: 'Reflection',
@@ -50,6 +58,9 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Mindfulness"
+
 		} as Task,
 		{
 			task_name: 'Socailizing',
@@ -57,6 +68,8 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Mindfulness"
 		} as Task,
 		{
 			task_name: 'Letures',
@@ -64,6 +77,8 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Academics"
 		} as Task,
 		{
 			task_name: 'Study/Homework',
@@ -71,6 +86,8 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Academics"
 		} as Task,
 
 		{
@@ -79,36 +96,39 @@ export const tasks: Writable<Array<Task>> = localStorageStore(
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Academics"
 		} as Task,
 
-		{
-			task_name: 'Socailizing',
-			enabled: false,
-			last_updated: '',
-			success: 0,
-			occurences: 0,
-		} as Task,
+
 		{
 			task_name: 'Laundry',
 			enabled: false,
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Chores"
 		} as Task,
+
 		{
 			task_name: 'Cleaning',
 			enabled: false,
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Chores"
 		} as Task,
 
 		{
-			task_name: 'Brush Teeth',
+			task_name: 'Trash Disposal',
 			enabled: false,
 			last_updated: '',
 			success: 0,
 			occurences: 0,
+			completedToday:false,
+			group:"Chores"
 		} as Task
 
 
