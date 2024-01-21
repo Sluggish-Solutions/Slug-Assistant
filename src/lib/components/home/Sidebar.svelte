@@ -6,8 +6,8 @@
 	class="absolute w-full h-full py-24 px-6 backdrop-blur-xl uppercase text-bold text-2xl sm:block p-5"
 	class:open={open}
 >
-	<a class="block" href="#about">About</a>
-	<a class="block" href="#contact">Contact</a>
+	<a class="block" href="chat">Chat</a>
+	<a class="block" href="contact">Contact</a>
 </aside>
 
 <style>
