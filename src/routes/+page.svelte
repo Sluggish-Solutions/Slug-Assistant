@@ -6,6 +6,8 @@
 	import { setUserId } from '../stores/userStore'
 	import { onMount } from 'svelte'
 
+	let quote: string = 'You are amazing!'
+
 	const quotes = [
 		"You're unstoppable.",
 		'Shine bright like a star.',
@@ -109,7 +111,9 @@
 		'Embrace the journey, embrace the joy.',
 	]
 
-	let quote = quotes[Math.floor(Math.random() * quotes.length)]
+	setInterval(() => {
+		quote = quotes[Math.floor(Math.random() * quotes.length)]
+	}, 20000)
 
 	const reqNotif = async () => {
 		const reg = await navigator.serviceWorker.getRegistration()

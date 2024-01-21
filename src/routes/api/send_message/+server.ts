@@ -3,8 +3,7 @@ import { json, type RequestHandler } from '@sveltejs/kit';
 import OpenAI from 'openai';
 import { OPEN_AI_KEY } from '$env/static/private';
 import type { Config } from '@sveltejs/adapter-vercel';
-import { getTokens } from '$lib/tokenizer';
-import { OpenAIStream, StreamingTextResponse } from 'ai';
+import { fail } from '@sveltejs/kit';
 
 
 export const config: Config = {
@@ -17,11 +16,12 @@ const openai = new OpenAI({
 export const POST: RequestHandler = async ({ locals, request }) => {
     try {
         const requestData = await request.json();
-        let { user_id, new_message, prev_messages } = requestData;
+        let { user_id, new_message, prev_messages, convo_id} = requestData;
 
         console.log(user_id);
         console.log(prev_messages);
         console.log(new_message);
+        console.log(convo_id)
 
         //temporary assignment
     
@@ -45,13 +45,19 @@ export const POST: RequestHandler = async ({ locals, request }) => {
         console.log("response", response)
         
         //now we need to send this data to supabase to store when the client comes back
-
-
-
-
-
-
-
+        let user_message_send = await locals.supabase
+        .from('messages')
+        .insert({author: user_id, body:new_message, conversation_id: convo_id})
+    console.log("user thing", user_message_send)
+        if (user_message_send.error){
+            return fail(404, {
+                error: "user isnt signed in"
+            })
+        }
+        console.log("what we are sending", user_message_send)
+        let mommy_message_send = await locals.supabase
+        .from('messages')
+        .insert({author: null, body:mommy_message.content, conversation_id: convo_id})
 
         return json({ success: true, ai_response: mommy_message});
 
