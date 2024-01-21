@@ -3,6 +3,7 @@
 	import Timer from '$lib/components/Radial.svelte'
 	import TaskList from '$lib/components/TaskList.svelte'
 	import Typewriter from '$lib/components/Typewriter.svelte';
+	import { quotes } from '$stores'
 	import { onMount } from 'svelte'
 
 	const reqNotif = async () => {
