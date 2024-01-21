@@ -1,5 +1,6 @@
+import { prev_messages } from "../../stores/userStore";
 import type { PageLoad } from "./$types";
-
+import {get} from 'svelte/store'
 // }
 export const load: PageLoad = async ({ parent }) => {
 const { session } = await parent();

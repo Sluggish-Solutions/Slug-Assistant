@@ -2,6 +2,8 @@
 	export let data;
 	import UserMessage from "$lib/components/chat/UserMessage.svelte";
 	import MommyMessage from "$lib/components/chat/MommyMessage.svelte";
+	import {sendMessage }from './+page'
+
 	let currentMessage = "";
 let elemChat: HTMLElement;
 
