@@ -3,8 +3,6 @@
 	import { toggle_task, type Task } from '$stores/taskStore'
 
 	export let taskObj: Task
-
-	$: console.log("hello", taskObj)
 </script>
 
 <tr>
@@ -13,7 +11,5 @@
 		<SlideToggle name="slide" checked={taskObj.enabled} on:change={() => toggle_task(taskObj.id)} />
 	</th>
 	<th>{taskObj.completed_today}</th>
-	<th>{taskObj.last_updated}</th>
 	<th>{taskObj.success}</th>
-	<th>{taskObj.occurrences}</th>
 </tr>

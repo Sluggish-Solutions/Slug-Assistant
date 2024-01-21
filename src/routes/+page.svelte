@@ -7,7 +7,7 @@
 	import { onMount } from 'svelte'
 	import { fly } from 'svelte/transition'
 	import { quintOut } from 'svelte/easing'
-	import { tasks } from '$stores/taskStore'
+	import { tasks, reset_completed_today } from '$stores/taskStore'
 	import Type from '$lib/components/Type.svelte'
 
 	let condition = false
@@ -203,11 +203,15 @@
 	let enabledTasks: any
 
 	onMount(() => {
-		const savedTasks = localStorage.getItem('tasks')
-		if (savedTasks) {
-			tasks.set(JSON.parse(savedTasks))
-		}
-		
+		// uses user-stored tasks if available
+		// const savedTasks = localStorage.getItem('tasks')
+		// if (savedTasks) {
+		// 	tasks.set(JSON.parse(savedTasks))
+		// }
+
+		// resets completed_today to false for all tasks
+		// for every new day
+		reset_completed_today()
 
 		condition = true
 
