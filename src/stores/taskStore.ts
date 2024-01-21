@@ -243,10 +243,10 @@ export const get_details = () => {
 	let academic_avg = academ_comp / academ_total || 0
 	let chore_avg =chores_comp / chores_total || 0
 	return {
-		health: health_avg || 0, 
-		mind: mind_avg || 0,
-		academic: academic_avg || 0,
-		chores: chore_avg || 0
+		health: Math.round(health_avg*100) || 0, 
+		mind: Math.round(mind_avg * 100)|| 0,
+		academic: Math.round(academic_avg *100)|| 0,
+		chores: Math.round(chore_avg *100)|| 0
 	}
 
 

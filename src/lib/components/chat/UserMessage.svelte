@@ -19,7 +19,7 @@ console.log("bubble@", bubble)
 	<div class="card p-4 rounded-tr-none space-y-2"> 
 		<header class="flex justify-between items-center">
 			<p class="font-bold">{bubble.author.full_name}</p>
-			<small class="opacity-50">{bubble.timestamp}</small>
+			<!-- <small class="opacity-50">{bubble.timestamp}</small> -->
 		</header>
 		<p>{bubble.body}</p>
 	</div>

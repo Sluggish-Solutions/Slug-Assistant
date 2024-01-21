@@ -17,6 +17,7 @@
 		<a href='/welcome' class="text-2xl px-3 hover:text-purple-900"><Type text="About"/></a>
 		<a href="/settings" class="text-2xl px-3 hover:text-purple-900"><Type text="Settings"/></a>
 		<a href="/signup" class="text-2xl px-3 hover:text-purple-900"><Type text="Sign In"/></a>
+		<!-- <a href="/signout" class="text-2xl px-3 hover:text-purple-900"><Type text="Sign Out"/></a> -->
 	</div>
 	<div class="flex sm:hidden justify-center">
 		<a href="/talk" class="text-2xl px-3 hover:text-purple-900"><MessagesSquareIcon/></a>
