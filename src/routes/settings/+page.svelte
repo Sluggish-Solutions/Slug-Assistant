@@ -1,13 +1,10 @@
 <script lang="ts">
 	import TaskTableRow from '$lib/components/TaskTableRow.svelte'
+
 	let taskObj_sample = {
-		id: '1234',
-		name: 'John',
-		active: true,
+		task_name: 'Brush Teeth',
+		enabled: true,
 		last_update: '2021-10-10',
-		user_id: '12',
-		scheduled_time: '12:00',
-		days_to_repeat: 1, // repeat every n day(s)
 		success: 3,
 		occurences: 10,
 	}
@@ -22,20 +19,19 @@
 	<table class="m-auto">
 		<tr>
 			<th>Task Name</th>
-			<th>Active</th>
+			<th>Enabled</th>
 			<th>Last Update</th>
-			<th>Scheduled Time</th>
-			<th>Repeat Every <span class="italic">n</span> Days</th>
+			<th>Success</th>
+			<th>Occurences</th>
 		</tr>
 
+		<!-- row with sample data -->
 		<TaskTableRow bind:taskObj={taskObj_sample} />
 	</table>
 
-
-		<button class="btn variant-filled-primary w-1/4 my-5" on:click={saveSettings}
-			>Save Settings</button>
-	
-
+	<button class="btn variant-filled-primary w-1/4 my-5" on:click={saveSettings}
+		>Save Settings</button
+	>
 </main>
 
 <style>

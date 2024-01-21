@@ -1,12 +1,9 @@
 <script lang="ts">
+	import { SlideToggle } from '@skeletonlabs/skeleton'
 	export let taskObj: {
-		id: string
-		name: string
-		active: boolean
+		task_name: string
+		enabled: boolean
 		last_update: string
-		user_id: string // already know
-		scheduled_time: string
-		days_to_repeat: number
 		success: number
 		occurences: number
 	}
@@ -23,11 +20,13 @@
 </label> -->
 
 <tr>
-	<th>{taskObj.name}</th>
-	<th>{taskObj.active}</th> <!-- switch -->
+	<th>{taskObj.task_name}</th>
+	<th>
+		<SlideToggle name="slide" bind:checked={taskObj.enabled} />
+	</th>
 	<th>{taskObj.last_update}</th>
-	<th>{taskObj.scheduled_time}</th>
-	<th>{taskObj.days_to_repeat}</th>
+	<th>{taskObj.success}</th>
+	<th>{taskObj.occurences}</th>
 </tr>
 
 <style>
