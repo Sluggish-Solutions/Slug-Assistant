@@ -11,7 +11,6 @@
 	let enabledTasks = $tasks.filter((task) => task.enabled)
 
 	onMount(() => {
-
 		condition = true
 	})
 </script>

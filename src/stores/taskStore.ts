@@ -19,8 +19,8 @@ export type Task = {
 export const tasks: Writable<Task[]> = writable([
 	{
 		id: 1,
-		task_name: 'Water Intake',
-		enabled: false,
+		task_name: 'Meditation',
+		enabled: true,
 		completed_today: false,
 		group: 'Health',
 		last_updated: `${Date.now()}`,
@@ -29,8 +29,8 @@ export const tasks: Writable<Task[]> = writable([
 	} as Task,
 	{
 		id: 2,
-		task_name: 'Food Intake',
-		enabled: false,
+		task_name: 'Exercise',
+		enabled: true,
 		completed_today: false,
 		group: 'Health',
 		last_updated: `${Date.now()}`,
@@ -39,8 +39,8 @@ export const tasks: Writable<Task[]> = writable([
 	} as Task,
 	{
 		id: 3,
-		task_name: 'Exercise',
-		enabled: false,
+		task_name: 'Food Intake',
+		enabled: true,
 		completed_today: false,
 		group: 'Health',
 		last_updated: `${Date.now()}`,
@@ -49,8 +49,8 @@ export const tasks: Writable<Task[]> = writable([
 	} as Task,
 	{
 		id: 4,
-		task_name: 'Meditation',
-		enabled: false,
+		task_name: 'Water Intake',
+		enabled: true,
 		completed_today: false,
 		group: 'Mindfulness',
 		last_updated: `${Date.now()}`,
@@ -60,7 +60,7 @@ export const tasks: Writable<Task[]> = writable([
 	{
 		id: 5,
 		task_name: 'Reflection',
-		enabled: false,
+		enabled: true,
 		completed_today: false,
 		group: 'Mindfulness',
 		last_updated: `${Date.now()}`,
@@ -144,7 +144,10 @@ export const toggle_task = (id: number) => {
 	tasks.update((tasks) => {
 		const updatedTasks = tasks.map((task) => {
 			if (task.id === id) {
-				return { ...task, enabled: !task.enabled }
+				return {
+					...task,
+					enabled: !task.enabled,
+				}
 			}
 			return task
 		})
@@ -157,7 +160,12 @@ export const toggle_completed_today = (id: number) => {
 	tasks.update((tasks) => {
 		const updatedTasks = tasks.map((task) => {
 			if (task.id === id) {
-				return { ...task, completed_today: !task.completed_today }
+				return {
+					...task,
+					completed_today: !task.completed_today,
+					success: task.completed_today ? task.success - 1 : task.success + 1,
+					last_updated: `${Date.now()}`,
+				}
 			}
 			return task
 		})
