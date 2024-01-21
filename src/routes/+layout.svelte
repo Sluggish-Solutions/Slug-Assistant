@@ -33,9 +33,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 </script>
 
 <div class="m-auto sm:p-5">
-	<Sidebar bind:open={open} />
-	<Header bind:sidebar={open} />
-
+	
+	<Header/>
 	<slot />
 </div>
 

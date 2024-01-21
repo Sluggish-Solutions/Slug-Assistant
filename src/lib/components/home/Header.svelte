@@ -1,25 +1,16 @@
-<script>
-	import Logo from './sidebar/Logo.svelte'
-	import Hamburger from './sidebar/Hamburger.svelte'
-	
-	export let sidebar = false
+<script lang="ts">
+    import Type from "../Type.svelte";
+
 </script>
 
-<header class="flex justify-between p-2 items-center border-b-2">
-	<nav class="flex gap-3">
-		<Hamburger bind:open={sidebar}/>
-		<Logo/>	
-	</nav>
-	
-	<nav class="hidden uppercase text-bold text-2xl sm:block p-5">
-		<a href="/chat">Chat</a>
-		<a href="/contact">Contact</a>
-	</nav>
-
-</header>
-
-<style>
-	a {
-		@apply hover:text-orange-300 hover:underline decoration-4 p-2 hover:font-extrabold;
-	}
-</style>
+<nav class="flex justify-between items-center gap-3 p-3 px-5 bg-black rounded-lg border-2 border-white ">
+	<div class="flex items-center gap-3">
+		<img class="max-h-10" src="/yellow.png" alt="Icon" />
+		<a class="text-2xl hover:text-purple-900" href="/"><Type text="Slug Mommy"/></a>
+	</div>
+	<div class="flex items-center gap-3 ">
+		<a href="/talk" class="text-2xl px-3 hover:text-purple-900"><Type text="Chat"/></a>
+		<a href='/welcome' class="text-2xl px-3 hover:text-purple-900"><Type text="About"/></a>
+		<a href="/settings" class="text-2xl px-3 hover:text-purple-900"><Type text="Settings"/></a>
+	</div>
+</nav>
