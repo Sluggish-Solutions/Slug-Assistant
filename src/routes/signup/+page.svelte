@@ -3,7 +3,7 @@
 	console.log(data);
 </script>
 
-<body class="flex w-screen h-screen z-[-10]" style="background-color: #fedeb7;">
+<body class="flex w-screen h-screen z-[-10]" >
 	<div
 		class="flex flex-col w-2/5 bg-slate-100 rounded-lg mx-20 my-20 h-3/4 px-10"
 	>
@@ -31,7 +31,7 @@
 		<button class="full-w bg-orange-500 rounded-full py-2"formaction="?/login_Oauth&provider=google">Google</button>
 	</div>
 	<div class="flex w-3/5 mx-10 my-20 h-3/4 justify-center">
-		<img src="/main.webp" alt="Logo" />
+		<img src="/main.png" alt="Logo" />
 	</div>
 </body>
 

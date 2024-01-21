@@ -1,6 +1,5 @@
  <script lang='ts'>
 	import Header from '../lib/components/home/Header.svelte'
-	import Sidebar from '../lib/components/home/Sidebar.svelte'
 	import '../app.postcss'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 	import { onMount } from 'svelte'
@@ -34,7 +33,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 
 <div class="m-auto sm:p-5">
 	
-	<Header/>
+	<div ><Header/></div>
+	
+
 	<slot />
 </div>
 
