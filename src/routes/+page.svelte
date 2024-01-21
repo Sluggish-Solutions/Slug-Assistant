@@ -200,14 +200,14 @@
 	let notification: Notification
 	let interval: NodeJS.Timeout
 	let num = 0
-	let enabledTasks
+	let enabledTasks: any
 
 	onMount(() => {
 		const savedTasks = localStorage.getItem('tasks')
 		if (savedTasks) {
 			tasks.set(JSON.parse(savedTasks))
 		}
-
+		
 
 		condition = true
 

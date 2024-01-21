@@ -8,12 +8,11 @@
 	import { tasks } from '$stores/taskStore'
 
 	let condition = false
-	let enabledTasks: any
+	let enabledTasks = $tasks.filter((task) => task.enabled)
 
 	onMount(() => {
-		condition = true
 
-		enabledTasks = $tasks.filter((task) => task.enabled)
+		condition = true
 	})
 </script>
 
@@ -31,7 +30,7 @@
 			class="flex flex-col gap-5 p-5 mx-3 max-h-[60vh] overflow-y-auto rounded-xl border-4 border-purple-700"
 		>
 			{#each enabledTasks as task}
-				<Task {task} />
+				<Task task={task} />
 			{/each}
 		</div>
 	</div>

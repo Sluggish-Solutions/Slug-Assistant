@@ -39,6 +39,7 @@ export const tasks: Writable<Task[]> = writable([
 	} as Task,
 ])
 
+
 // updated to user's version on load if there exists
 export const toggle_task = (id: number) => {
 	tasks.update((tasks) => {
