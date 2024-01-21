@@ -26,6 +26,8 @@ function manageTokenCount(newMessage, messageHistory) {
         }
     }    
     
+    console.log(messageHistory);
+
     messageHistory.shift(); 
     // Remove the oldest thing in the message history until we get below 4000 tokens
     // while (tokenCount >= 4000 && messageHistory.length > 0) {
