@@ -18,20 +18,25 @@ export const tasks: Writable<Task[]> = writable([
 	{
 		id: Date.now(),
 		task_name: 'Brush Teeth',
-		enabled: true,
-		last_updated: '2021-10-10',
-		success: 3,
-		occurences: 10,
+		enabled: false,
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurences: 0,
 	} as Task,
 	{
-		id: Date.now(),
+		id: Date.now() + 1,
 		task_name: 'Wash Face',
-		enabled: true,
-		last_updated: '2021-10-10',
-		success: 3,
-		occurences: 10,
+		enabled: false,
+		last_updated: Date.now().toString(),
+		success: 0,
+		occurences: 0,
 	} as Task,
 ])
+
+// if a local copy exists, use that instead
+if (localStorage.getItem('tasks')) {
+	tasks.set(JSON.parse(localStorage.getItem('tasks') || '[]'))
+}
 
 export const add_task = (newTask: Task) => {
 	tasks.update((tasks) => {
