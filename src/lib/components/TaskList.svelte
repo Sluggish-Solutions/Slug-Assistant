@@ -34,7 +34,7 @@
 		</section>
 		<div class="flex flex-col gap-5 p-5 mx-3 rounded-xl border-4">
 			{#each todos as todo}
-				<Task task={todo.text} done={todo.done} repeatTime={1} />
+				<Task task={todo.text} done={todo.done} />
 			{/each}
 		</div>
 	</div>

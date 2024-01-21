@@ -4,7 +4,6 @@
 
 	export let task: string
 	export let done: boolean
-	export let repeatTime: number
 
 	let visible = false
 
