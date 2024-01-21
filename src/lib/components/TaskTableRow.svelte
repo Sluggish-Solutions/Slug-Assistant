@@ -15,5 +15,5 @@
 	<th>{taskObj.completed_today}</th>
 	<th>{taskObj.last_updated}</th>
 	<th>{taskObj.success}</th>
-	<th>{taskObj.occurences}</th>
+	<th>{taskObj.occurrences}</th>
 </tr>

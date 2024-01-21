@@ -28,7 +28,7 @@
 		};
 	}
 </script>
-<div class="">
+<div class="text-2xl">
 	{#if visible}
 		<p transition:typewriter>
 			{text}

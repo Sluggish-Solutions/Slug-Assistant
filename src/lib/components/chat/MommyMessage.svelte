@@ -5,7 +5,7 @@
 </script>
 
 <div class="grid grid-cols-[auto_1fr] gap-2">
-	<Avatar width="w-12" />
+	<Avatar src="/main.png" width="w-12" />
 	<div class="card p-4 variant-soft rounded-tl-none space-y-2">
 		<header class="flex justify-between items-center">
 			<p class="font-bold">Slug Mommy</p>
