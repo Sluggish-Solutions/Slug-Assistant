@@ -2,9 +2,11 @@
 	export let data;
 	import UserMessage from "$lib/components/chat/UserMessage.svelte";
 	import MommyMessage from "$lib/components/chat/MommyMessage.svelte";
+	import {get} from 'svelte/store'
+	import { onDestroy } from "svelte";
 	let currentMessage = "";
 
-	console.log(data);
+//	console.log(data);
 let elemChat: HTMLElement;
 
 function scrollChatBottom(behavior?: ScrollBehavior): void {
@@ -29,15 +31,56 @@ function addMessage(): void {
 	setTimeout(() => { scrollChatBottom('smooth'); }, 0);
 } */
 
+//let all_messages = Array.from(data.newMessageFeed)
+
+
 // once a user sends a message, we need to send / route it through server! 
 // just have an endpoint lmao
 import {useChat} from 'ai/svelte'
+    import { convo_id } from "$stores/userStore.js";
+	let all_messages = data.newMessageFeed;
+	console.log(all_messages)
+
+	//* ENABLED REALTIME FILTER HOLY MOLY ITS SO FINEEEEE
+
+	let new_messages_channel = data.supabase
+		.channel('messages_channel')
+		.on(
+			'postgres_changes',
+			{
+				event: 'INSERT',
+				schema: 'public',
+				table: 'messages',
+				filter: 'conversation_id=eq.' + get(convo_id)
+			},
+			async (payload) => {
+				let new_message = await data.supabase
+					.from('messages')
+					.select('*, author(*)')
+					.eq('id', payload.new.id);
+
+				// @ts-ignore
+				all_messages = [...all_messages, ...new_message.data]; // Update all_messages array
+
+console.log(all_messages)
+				console.log('called?');
+			}
+		)
+		.subscribe((status) => {
+			console.log(status);
+		});
+
+	onDestroy(() => {
+		data.supabase.removeChannel(new_messages_channel);
+	});
+
 </script>
 
 <div bind:this={elemChat} class="overflow-y-auto">
 	<section class="w-full max-h-[400px] p-4 overflow-y-auto space-y-4">
-		{#each data.messageFeed as bubble, i}
-			{#if bubble.host === true}
+		{#if all_messages}
+		{#each all_messages as bubble, i}
+			{#if bubble.author }
 				<!-- Host Message Bubble -->
 				<UserMessage {bubble} />
 			{:else}
@@ -45,6 +88,7 @@ import {useChat} from 'ai/svelte'
 				<MommyMessage {bubble} />
 			{/if}
 		{/each}
+		{/if}
 	</section>
 </div>
 <div
