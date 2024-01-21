@@ -12,20 +12,27 @@
 		condition = true
 	})
 
+	// id: Date.now(),
+	// 	task_name: 'Brush Teeth',
+	// 	enabled: false,
+	// 	last_updated: `${Date.now()}`,
+	// 	success: 0,
+	// 	occurences: 0,
+
 	let todos = [
-		{ name: 'Water Intake', completed: false },
-		{ name: 'Food Intake', completed: false },
-		{ name: 'Exercise', completed: false },
-		{ name: 'Meditation', completed: false },
-		{ name: 'Reflection', completed: false },
-		{ name: 'Socailizing', completed: false },
-		{ name: 'Study/Homework', completed: false },
-		{ name: 'Lectures', completed: false },
-		{ name: 'Leetcode', completed: false },
-		{ name: 'Socailizing', completed: false },
-		{ name: 'Laundry', completed: false },
-		{ name: 'Cleaning', completed: false },
-		{ name: 'Trash Disposal', completed: false },
+		{ id:1 ,task_name: 'Water Intake', last_updated: "", success:0, occurences:0},
+		{ id:1 ,task_name: 'Food Intake', last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Exercise', last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Meditation', last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Reflection', last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Socailizing', last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Study/Homework', last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Lectures',last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Leetcode', last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Socailizing', last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Laundry', last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Cleaning',last_updated: "", success:0,occurences:0},
+		{ id:1 ,task_name: 'Trash Disposal', last_updated: "", success:0,occurences:0}
 	]
 </script>
 
