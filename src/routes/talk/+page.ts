@@ -1,26 +1,31 @@
-import { curr_user_id, prev_messages } from "../../stores/userStore";
+import { add_message_to_store, curr_user_id, get_prev_messages,  } from "../../stores/userStore";
 import type { PageLoad } from "./$types";
 import {get} from 'svelte/store'
 // }
-const sendMessage = async(convo_id:string, curr_message: string) => {
+const sendMessage = async( curr_message: string) => {
 	//get array of local storage messages
-	const messages_arr = get(prev_messages)
-	console.log(messages_arr)
+	const prev_messages = get_prev_messages()
 	//request my endpoint
-	//
+
+	console.log(curr_message)
+	console.log(prev_messages)
 	let user_id = get(curr_user_id)
+	
 
 	const res = await fetch('/api/send_message ', {
 		method: 'POST',
 		body: JSON.stringify({
 			"user_id": user_id,
 			"new_message": curr_message,
-			"message_history": messages_arr,
+			"prev_messages": prev_messages,
 		})
 	})
 	const response = await res.json()
-	
-	console.log(response);
+
+	console.log("what the client gets back", response);
+	add_message_to_store(false, curr_message)
+	add_message_to_store(true, response.ai_response.content)
+	return response.ai_response.content
 // ideally it would be nice if there was some sort of toast if some error happend?
 	//
 }
@@ -28,7 +33,8 @@ const sendMessage = async(convo_id:string, curr_message: string) => {
 export const load: PageLoad = async ({ parent }) => {
 const { session } = await parent();
 	// needs to load data from supabase for the messages
-	// 
+	// need to filter time stamp / library / something like that 
+	// need to load messages from the previous thing
 let messageFeed = [
 	{
 		id: 0,

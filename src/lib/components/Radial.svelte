@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ProgressRadial } from '@skeletonlabs/skeleton'
 	import { ProgressBar } from '@skeletonlabs/skeleton'
-	export let progress:Number;
+	export let progress:number;
 	export let color:string;
 </script>
 
