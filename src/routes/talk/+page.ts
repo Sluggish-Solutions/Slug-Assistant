@@ -37,7 +37,7 @@ const { supabase, session } = await parent();
 	
 
 	if (!session) {
-		return redirect(303, '/welcome')
+		return redirect(303, '/signup')
 		
 	}
 
