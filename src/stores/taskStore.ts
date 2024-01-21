@@ -16,7 +16,7 @@ export type Task = {
 
 export const tasks: Writable<Task[]> = writable([
 	{
-		id: Date.now(),
+		id: 1,
 		task_name: 'Brush Teeth',
 		enabled: false,
 		last_updated: `${Date.now()}`,
@@ -24,7 +24,7 @@ export const tasks: Writable<Task[]> = writable([
 		occurences: 0,
 	} as Task,
 	{
-		id: Date.now() + 1,
+		id: 2,
 		task_name: 'Wash Face',
 		enabled: false,
 		last_updated: Date.now().toString(),
@@ -33,12 +33,7 @@ export const tasks: Writable<Task[]> = writable([
 	} as Task,
 ])
 
-// if a local copy exists, use that instead
-// if (localStorage.getItem('tasks')) {
-// 	tasks.set(JSON.parse(localStorage.getItem('tasks') || '[]'))
-// }
-
-
+// updated to user's version on load if there exists
 
 export const add_task = (newTask: Task) => {
 	tasks.update((tasks) => {

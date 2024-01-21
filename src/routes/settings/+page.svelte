@@ -2,7 +2,14 @@
 	import TaskTableRow from '$lib/components/TaskTableRow.svelte'
 	import type { Task } from '$stores/taskStore'
 	import { tasks } from '$stores/taskStore'
-	console.log('settings', $tasks)
+	import { onMount } from 'svelte'
+
+	onMount(() => {
+		const savedTasks = localStorage.getItem('tasks')
+		if (savedTasks) {
+			tasks.set(JSON.parse(savedTasks))
+		}
+	})
 </script>
 
 <main class="w-full h-full flex flex-col justify-center items-center">
