@@ -13,12 +13,19 @@
 	})
 
 	let todos = [
-		{ text: 'Brush Teeth', done: false },
-		{ text: 'Shower', done: false },
-		{ text: 'Homework', done: false },
-		{ text: 'Laundry', done: false },
-    { text: 'Food', done: false },
-    {text: 'Water', done: false} 
+		{ text: 'Water Intake', done: false },
+		{ text: 'Food Intake', done: false },
+		{ text: 'Exercise', done: false },
+		{ text: 'Meditation', done: false },
+    { text: 'Reflection', done: false },
+    {text: 'Socailizing', done: false},
+	{text: 'Study/Homework', done: false},
+	{text: 'Lectures', done: false},
+	{text: 'Leetcode', done: false},
+	{text: 'Socailizing', done: false},
+	{text: 'Laundry', done: false},
+	{text: 'Cleaning', done: false},
+	{text: 'Trash Disposal', done: false} 
 	]
 </script>
 

@@ -7,7 +7,7 @@
   export let repeatTime: number;
 </script>
 
-<div class="flex items-center justify-center bg-black h-fit mx-3 py-4 rounded-lg">
+<div class="flex items-center justify-center bg-black h-fit mx-3 py-1 rounded-lg">
   <div class="flex">
     <span class="px-5" class:completed={checkboxChecked}>{task}:</span>
 
