@@ -20,8 +20,15 @@
 <hr />
 
 <table>
+    <tr>
+        <th>Task Name</th>
+        <th>Active</th>
+        <th>Last Update</th>
+        <th>Days to Repeat</th>
+    </tr>
+
     <TaskTableRow bind:taskObj={taskObj_sample} />
-    
+    <TaskTableRow bind:taskObj={taskObj_sample} />
 </table>
 
 <button class="btn variant-filled-primary" on:click={saveSettings}>Save Settings</button>

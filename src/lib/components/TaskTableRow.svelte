@@ -11,7 +11,7 @@
 	}
 </script>
 
-<label
+<!-- <label
 	class="flex justify-center items-center w-full rounded-lg decoration-[3px] decoration-orange-300 text-xl cursor-pointer transition-all duration-300 ease-in-out hover:text-orange-300 bg-black py-5"
 >
 	<input
@@ -19,7 +19,7 @@
 		placeholder="put the name here"
 		class="text-black"
 	/>
-</label>
+</label> -->
 
 <tr>
 	<th>{taskObj.name}</th>

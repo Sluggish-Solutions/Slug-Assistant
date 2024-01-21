@@ -12,19 +12,19 @@
 	})
 
 	let todos = [
-		{ text: 'Water Intake', done: false },
-		{ text: 'Food Intake', done: false },
-		{ text: 'Exercise', done: false },
-		{ text: 'Meditation', done: false },
-		{ text: 'Reflection', done: false },
-		{ text: 'Socailizing', done: false },
-		{ text: 'Study/Homework', done: false },
-		{ text: 'Lectures', done: false },
-		{ text: 'Leetcode', done: false },
-		{ text: 'Socailizing', done: false },
-		{ text: 'Laundry', done: false },
-		{ text: 'Cleaning', done: false },
-		{ text: 'Trash Disposal', done: false },
+		{ name: 'Water Intake', completed: false },
+		{ name: 'Food Intake', completed: false },
+		{ name: 'Exercise', completed: false },
+		{ name: 'Meditation', completed: false },
+		{ name: 'Reflection', completed: false },
+		{ name: 'Socailizing', completed: false },
+		{ name: 'Study/Homework', completed: false },
+		{ name: 'Lectures', completed: false },
+		{ name: 'Leetcode', completed: false },
+		{ name: 'Socailizing', completed: false },
+		{ name: 'Laundry', completed: false },
+		{ name: 'Cleaning', completed: false },
+		{ name: 'Trash Disposal', completed: false },
 	]
 </script>
 
@@ -47,7 +47,7 @@
 			class="flex flex-col gap-5 p-5 mx-3 max-h-[60vh] overflow-y-auto rounded-xl border-4"
 		>
 			{#each todos as todo}
-				<Task name={todo.text} completed={todo.done} />
+				<Task name={todo.name} completed={todo.completed} />
 			{/each}
 		</div>
 	</div>
