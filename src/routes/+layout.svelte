@@ -37,3 +37,6 @@
 
 	<slot />
 </div>
+
+
+<!-- prevent user from accessing any pages unless they logged in -->

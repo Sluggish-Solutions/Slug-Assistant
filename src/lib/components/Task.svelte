@@ -1,19 +1,19 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
   import { onMount } from "svelte";
-  
+
   export let task: string;
   export let done: boolean;
 
   let visible = false;
+	export let name: string
+	export let completed: boolean
 
 
   onMount(() => {
     visible = true;
   });
 </script>
-
-<!-- <div class='flex justify-center'> -->
 
 <label
   class="flex justify-center items-center w-full rounded-lg {done
@@ -34,4 +34,3 @@
   />
   <span class="checkmark"></span>
 </label>
-<!-- </div> -->
