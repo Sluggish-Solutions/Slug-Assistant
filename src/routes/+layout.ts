@@ -4,6 +4,7 @@ import type { Database } from "../../types/supabase.types";
 import {first_time, setUserId } from "../stores/userStore";
 import { get } from "svelte/store";
 import { redirect } from "@sveltejs/kit";
+import { tasks } from "$stores/taskStore";
 //id local storage for user id?
 // @ts-expect-error depends has any time, we dont care abt it though
 export const load = async ({fetch, data, depends}) => {
@@ -25,6 +26,7 @@ export const load = async ({fetch, data, depends}) => {
 	if (session) {
 		setUserId(session.user.id);
 	}
+
 
 	console.log(get(first_time))
 	// if (get(first_time)){

@@ -1,7 +1,8 @@
- script>
+ <script lang='ts'>
 	import Header from '../lib/components/home/Header.svelte'
 	import Sidebar from '../lib/components/home/Sidebar.svelte'
 	import '../app.postcss'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 	import { onMount } from 'svelte'
 
 	$: open = false
