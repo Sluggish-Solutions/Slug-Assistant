@@ -13,7 +13,6 @@ export type Task = {
 	group: string
 	last_updated: string
 	success: number
-	occurrences: number
 }
 
 export const tasks: Writable<Task[]> = writable([
@@ -25,7 +24,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Health',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 2,
@@ -35,7 +33,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Health',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 3,
@@ -45,7 +42,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Health',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 4,
@@ -55,7 +51,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Mindfulness',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 5,
@@ -65,7 +60,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Mindfulness',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 6,
@@ -75,7 +69,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Mindfulness',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 7,
@@ -85,7 +78,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Academics',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 8,
@@ -95,7 +87,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Academics',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 9,
@@ -105,7 +96,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Academics',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 10,
@@ -115,7 +105,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Chores',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 11,
@@ -125,7 +114,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Chores',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 12,
@@ -135,7 +123,6 @@ export const tasks: Writable<Task[]> = writable([
 		group: 'Chores',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 ])
 

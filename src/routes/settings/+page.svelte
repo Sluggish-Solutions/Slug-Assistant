@@ -21,7 +21,6 @@
 			<th>Completed Today</th>
 			<th>Last Update</th>
 			<th>Success</th>
-			<th>Occurences</th>
 		</tr>
 
 		<!-- rest of the rows -->
