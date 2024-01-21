@@ -1,8 +1,8 @@
 <!-- <script lang="ts">
-	import { stringify } from "querystring"
 
     {
         task_on_repeat: {
+            id: string,
             name: string;
             created_at: string,
             user_id: string,
