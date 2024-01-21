@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { SlideToggle } from '@skeletonlabs/skeleton'
-	import { delete_task, toggle_task, type Task } from '$stores/taskStore'
+	import { toggle_task, type Task } from '$stores/taskStore'
 
 	export let taskObj: Task
 

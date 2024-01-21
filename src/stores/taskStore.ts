@@ -9,6 +9,8 @@ export type Task = {
 	id: number
 	task_name: string
 	enabled: boolean
+	completed_today: boolean,
+	group: string,
 	last_updated: string
 	success: number
 	occurences: number
@@ -19,6 +21,8 @@ export const tasks: Writable<Task[]> = writable([
 		id: 1,
 		task_name: 'Brush Teeth',
 		enabled: false,
+		completed_today: false,
+		group: 'Health',
 		last_updated: `${Date.now()}`,
 		success: 0,
 		occurences: 0,
@@ -27,6 +31,8 @@ export const tasks: Writable<Task[]> = writable([
 		id: 2,
 		task_name: 'Wash Face',
 		enabled: false,
+		completed_today: false,
+		group: 'Health',
 		last_updated: `${Date.now()}`,
 		success: 0,
 		occurences: 0,
@@ -34,23 +40,6 @@ export const tasks: Writable<Task[]> = writable([
 ])
 
 // updated to user's version on load if there exists
-
-export const add_task = (newTask: Task) => {
-	tasks.update((tasks) => {
-		const newTasks = [...tasks, newTask]
-		localStorage.setItem('tasks', JSON.stringify(newTasks))
-		return newTasks
-	})
-}
-
-export const delete_task = (id: number) => {
-	tasks.update((tasks) => {
-		const newTasks = tasks.filter((task) => task.id !== id)
-		localStorage.setItem('tasks', JSON.stringify(newTasks))
-		return newTasks
-	})
-}
-
 export const toggle_task = (id: number) => {
 	tasks.update((tasks) => {
 		const updatedTasks = tasks.map((task) => {
@@ -63,3 +52,23 @@ export const toggle_task = (id: number) => {
 		return updatedTasks
 	})
 }
+
+export const toggle_completed = (id: number) => {
+	tasks.update((tasks) => {
+		const updatedTasks = tasks.map((task) => {
+			if (task.id === id) {
+				return { ...task, completed_today: !task.completed_today }
+			}
+			return task
+		})
+		localStorage.setItem('tasks', JSON.stringify(updatedTasks))
+		return updatedTasks
+	})
+}
+
+export const getDetails = (id: number) => {
+	// get associated categories
+	// basically a big detailed summary of users progress
+
+
+} 
