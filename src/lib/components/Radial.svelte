@@ -18,7 +18,7 @@
 
 	<div class="flex mt-10 w-full justify-center">
 		<div class="mr-10 flex just">
-			<h1 class="mt-12 text-1xl">Mindfullness:</h1>
+			<h1 class="mt-12 text-1xl">Mindfulness:</h1>
 		</div>
 		<div class="z-[-10]">
 			<ProgressRadial meter="stroke-blue-400" value={progress}

@@ -102,19 +102,22 @@
 	})
 </script>
 
-<div class="flex flex-col sm:flex-row">
-	<div class="lg: w-full max-h-screen ">
+<div class="flex flex-col md:flex-row gap-5">
+	<div class="lg: w-full max-h-screen">
 		<TaskList />
 	</div>
-	
-	
+
 	<div class="lg: w-full max-h-screen">
 		<SlugMommy />
 
 		<div class="flex flex-col gap-3">
-			<button class='btn variant-filled-tertiary' on:click={reqNotif}>Turn On Your Notif</button>
+			<button class="btn variant-filled-tertiary" on:click={reqNotif}
+				>Turn On Your Notif</button
+			>
 
-			<button class='btn variant-filled-secondary' on:click={() => scheduleChoresReminder(300, 'homework')}
+			<button
+				class="btn variant-filled-secondary"
+				on:click={() => scheduleChoresReminder(300, 'homework')}
 				>Do Your Homework</button
 			>
 		</div>
