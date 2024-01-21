@@ -6,7 +6,12 @@
 
 	let visible = false;
     onMount(() => {
-        visible = true;
+        visible = !visible;
+
+        setInterval(() => {
+            visible = !visible;
+        }, 10000);
+
     })
 
 	function typewriter(node: any, { speed = 1 }) {
