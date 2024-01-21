@@ -1,25 +1,36 @@
 <script lang="ts">
-  import { Sliders } from "lucide-svelte";
-  // Added a reactive statement for the checkbox
-  let checkboxChecked = false;
-  export let task: string;
-  export let done: boolean;
-  export let repeatTime: number;
+	import { fade, fly } from 'svelte/transition'
+	import { onMount } from 'svelte'
+
+	export let task: string
+	export let done: boolean
+
+	let visible = false
+
+	onMount(() => {
+		visible = true
+	})
 </script>
 
-<div class="flex items-center justify-center bg-black h-fit mx-3 py-1 rounded-lg">
-  <div class="flex">
-    <span class="px-5" class:completed={checkboxChecked}>{task}:</span>
+<!-- <div class='flex justify-center'> -->
 
-    <!-- Use a span instead of a label for better styling -->
-    <input class="mt-1" type="checkbox" bind:checked={checkboxChecked} />
-   
-  </div>
-</div>
+<label
+	class="flex justify-center items-center w-full rounded-lg {done
+		? 'line-through'
+		: ''} decoration-[3px] decoration-orange-300 text-xl cursor-pointer transition-all duration-300 ease-in-out hover:text-orange-300 bg-black py-5"
+>
+	{#if visible}
+		<h1 in:fly={{ x: -300, duration: 2000 }} out:fade>
+			{task}
+		</h1>
+	{/if}
 
-<style>
-  /* Add styles for the completed class */
-  span.completed {
-    text-decoration: line-through;
-  }
-</style>
+	<input
+		type="checkbox"
+		bind:checked={done}
+		on:click={() => (done = !done)}
+		class="hidden"
+	/>
+	<span class="checkmark"></span>
+</label>
+<!-- </div> -->
