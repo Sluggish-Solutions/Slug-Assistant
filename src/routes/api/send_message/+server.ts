@@ -24,6 +24,9 @@ export const POST: RequestHandler = async ({ locals, request }) => {
         console.log(convo_id)
 
         //temporary assignment
+        let user_message_send = await locals.supabase
+            .from('messages')
+            .insert({author: user_id, body:new_message, conversation_id: convo_id})
     
 
         // Ask OpenAI for a streaming chat completion
@@ -45,9 +48,6 @@ export const POST: RequestHandler = async ({ locals, request }) => {
         console.log("response", response)
         
         //now we need to send this data to supabase to store when the client comes back
-        let user_message_send = await locals.supabase
-        .from('messages')
-        .insert({author: user_id, body:new_message, conversation_id: convo_id})
     console.log("user thing", user_message_send)
         if (user_message_send.error){
         }

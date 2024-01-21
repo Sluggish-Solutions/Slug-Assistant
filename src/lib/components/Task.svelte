@@ -2,6 +2,7 @@
 	import { toggle_completed_today } from '$stores/taskStore'
 	import { fade, fly } from 'svelte/transition'
 	import { onMount } from 'svelte'
+  import next_mommy from '$lib/components/SlugMommy.svelte'
 
 	export let task: any
 
