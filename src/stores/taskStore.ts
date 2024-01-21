@@ -1,10 +1,10 @@
 import type { Writable } from 'svelte/store'
 import { writable } from 'svelte/store'
-import { localStorageStore } from '@skeletonlabs/skeleton'
-import { get } from 'svelte/store'
+// import { localStorageStore } from '@skeletonlabs/skeleton'
 export const curr_user_id = writable('')
 export const convo_id = writable('')
 export const first_time = writable(true)
+
 export type Task = {
 	id: number
 	task_name: string
@@ -16,7 +16,7 @@ export type Task = {
 
 export const tasks: Writable<Task[]> = writable([
 	{
-		id: 12,
+		id: Date.now(),
 		task_name: 'Brush Teeth',
 		enabled: true,
 		last_updated: '2021-10-10',
@@ -24,7 +24,7 @@ export const tasks: Writable<Task[]> = writable([
 		occurences: 10,
 	} as Task,
 	{
-		id: 13,
+		id: Date.now(),
 		task_name: 'Wash Face',
 		enabled: true,
 		last_updated: '2021-10-10',
