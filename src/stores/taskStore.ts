@@ -1,6 +1,8 @@
 import { Pi } from 'lucide-svelte'
 import type { Writable } from 'svelte/store'
 import { writable } from 'svelte/store'
+import { browser } from '$app/environment'
+
 // import { localStorageStore } from '@skeletonlabs/skeleton'
 export const curr_user_id = writable('')
 import { get } from 'svelte/store'
@@ -15,59 +17,53 @@ export type Task = {
 	group: string
 	last_updated: string
 	success: number
-	occurrences: number
 }
 
 export const tasks: Writable<Task[]> = writable([
 	{
 		id: 1,
-		task_name: 'Water Intake',
-		enabled: false,
+		task_name: 'Meditation',
+		enabled: true,
 		completed_today: false,
 		group: 'Health',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 2,
-		task_name: 'Food Intake',
-		enabled: false,
+		task_name: 'Exercise',
+		enabled: true,
 		completed_today: false,
 		group: 'Health',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 3,
-		task_name: 'Exercise',
-		enabled: false,
+		task_name: 'Food Intake',
+		enabled: true,
 		completed_today: false,
 		group: 'Health',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 4,
-		task_name: 'Meditation',
-		enabled: false,
+		task_name: 'Water Intake',
+		enabled: true,
 		completed_today: false,
 		group: 'Mindfulness',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 5,
 		task_name: 'Reflection',
-		enabled: false,
+		enabled: true,
 		completed_today: false,
 		group: 'Mindfulness',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 6,
@@ -75,9 +71,8 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Mindfulness',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 7,
@@ -85,9 +80,8 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Academics',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 8,
@@ -95,9 +89,8 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Academics',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 9,
@@ -105,9 +98,8 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Academics',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 10,
@@ -115,9 +107,8 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Chores',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 11,
@@ -125,9 +116,8 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Chores',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 	{
 		id: 12,
@@ -135,9 +125,8 @@ export const tasks: Writable<Task[]> = writable([
 		enabled: false,
 		completed_today: false,
 		group: 'Chores',
-		last_updated: `${Date.now()}`,
+		last_updated: `${new Date(Date.now()).getDay()}`,
 		success: 0,
-		occurrences: 0,
 	} as Task,
 ])
 
@@ -146,7 +135,10 @@ export const toggle_task = (id: number) => {
 	tasks.update((tasks) => {
 		const updatedTasks = tasks.map((task) => {
 			if (task.id === id) {
-				return { ...task, enabled: !task.enabled }
+				return {
+					...task,
+					enabled: !task.enabled,
+				}
 			}
 			return task
 		})
@@ -159,9 +151,35 @@ export const toggle_completed_today = (id: number) => {
 	tasks.update((tasks) => {
 		const updatedTasks = tasks.map((task) => {
 			if (task.id === id) {
-				return { ...task, completed_today: !task.completed_today }
+				return {
+					...task,
+					completed_today: !task.completed_today,
+					success: task.completed_today
+						? task.success - 1
+						: task.success + 1,
+					last_updated: `${new Date(
+						new Date(Date.now()).getDay()
+					).getDay()}`,
+				}
 			}
 			return task
+		})
+		localStorage.setItem('tasks', JSON.stringify(updatedTasks))
+		return updatedTasks
+	})
+}
+
+export const reset_completed_today = () => {
+	tasks.update((tasks) => {
+		const updatedTasks = tasks.map((task) => {
+			return {
+				...task,
+				completed_today:
+					new Date(Date.now()).getDay() - Number(task.last_updated) >
+					86400000
+						? false
+						: task.completed_today,
+			}
 		})
 		localStorage.setItem('tasks', JSON.stringify(updatedTasks))
 		return updatedTasks

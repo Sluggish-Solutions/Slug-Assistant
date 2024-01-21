@@ -1,4 +1,5 @@
- <script lang='ts'>
+<script lang="ts">
+	import { tasks } from '$stores/taskStore'
 	import Header from '../lib/components/home/Header.svelte'
 	import '../app.postcss'
 	// import '@fortawesome/fontawesome-free/css/all.min.css'
@@ -26,18 +27,20 @@
 		}
 	}
 
-	onMount(() => {
+	onMount(async () => {
+		const savedTasks = localStorage.getItem('tasks')
+		if (savedTasks) {
+			tasks.set(JSON.parse(savedTasks))
+		}
+
 		detectSWUpdate()
 	})
 </script>
 
 <div class="m-auto sm:p-5">
-	
-	<div ><Header/></div>
-	
+	<div><Header /></div>
 
-	<slot />
+	<slot  />
 </div>
-
 
 <!-- prevent user from accessing any pages unless they logged in -->
