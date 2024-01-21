@@ -26,7 +26,7 @@
   in:fly={{x: 0, duration: 3000, easing: quintOut}}
   out:fly={{x: -100, duration: 3000, easing: quintOut}}>
   <div class="flex justify-center">
-    <h1 class="py-5 text-2xl">Tasks</h1>
+    <div class="flex items-center justify-center bg-black h-fit mr-3 ml-3 py-4 rounded-lg w-full mb-5 mt-5">Tasks</div>
   </div>
   <div class="flex flex-col gap-5">
     {#each todos as todo}
@@ -35,3 +35,4 @@
   </div>
 </div>
   {/if}
+
