@@ -34,9 +34,11 @@ export const tasks: Writable<Task[]> = writable([
 ])
 
 // if a local copy exists, use that instead
-if (localStorage.getItem('tasks')) {
-	tasks.set(JSON.parse(localStorage.getItem('tasks') || '[]'))
-}
+// if (localStorage.getItem('tasks')) {
+// 	tasks.set(JSON.parse(localStorage.getItem('tasks') || '[]'))
+// }
+
+
 
 export const add_task = (newTask: Task) => {
 	tasks.update((tasks) => {
