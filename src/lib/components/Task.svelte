@@ -1,6 +1,7 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
   import { onMount } from "svelte";
+  import refreshStats from '../../routes/+page.svelte'
   import next_mommy from '$lib/components/SlugMommy.svelte'
 
 	export let task: any
@@ -26,7 +27,7 @@
   <input
     type="checkbox"
     bind:checked={task.completed_today}
-    on:click={() => (task.completed_today = !task.completed_today)}
+    on:click={() => (task.completed_today = !task.completed_today, refreshStats())}
     class="hidden"
   />
   <span class="checkmark"></span>

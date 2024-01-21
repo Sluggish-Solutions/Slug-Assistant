@@ -7,7 +7,7 @@
 	import { onMount } from 'svelte'
 	import { fly } from 'svelte/transition'
 	import { quintOut } from 'svelte/easing'
-	import { tasks } from '$stores/taskStore'
+	import { get_details, tasks } from '$stores/taskStore'
 	import Type from '$lib/components/Type.svelte'
 
 	let condition = false
@@ -201,13 +201,15 @@
 	let interval: NodeJS.Timeout
 	let num = 0
 	let enabledTasks: any
-
+	let stats:any;
 	onMount(() => {
 		const savedTasks = localStorage.getItem('tasks')
 		if (savedTasks) {
 			tasks.set(JSON.parse(savedTasks))
 		}
 		
+		stats = get_details()
+
 
 		condition = true
 
@@ -236,6 +238,13 @@
 			console.log('sus', num)
 		})
 	})
+
+	console.log('statistics', stats)
+
+
+	export const refreshStats = () => {
+		stats = get_details()
+	}
 </script>
 
 <div class="flex flex-col md:flex-row gap-5">
@@ -269,16 +278,16 @@
 				class="flex flex-col border-4 border-purple-700 rounded-lg px-10 py-12"
 			>
 				<div class="flex justify-center my-2.5">
-					<Radial progress={50} color="stroke-green-600" title="Health" />
+					<Radial progress={stats.health} color="stroke-green-600" title="Health" />
 					<Radial
-						progress={75}
+						progress={stats.mind}
 						color="stroke-blue-600"
 						title="Mindfullness"
 					/>
 				</div>
 				<div class="flex justify-center my-2.5">
-					<Radial progress={25} color="stroke-red-600" title="Adademics" />
-					<Radial progress={50} color="stroke-purple-600" title="Chores" />
+					<Radial progress={stats.academic} color="stroke-red-600" title="Adademics" />
+					<Radial progress={stats.chores} color="stroke-purple-600" title="Chores" />
 				</div>
 			</div>
 		</div>

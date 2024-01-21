@@ -14,6 +14,10 @@ export const load: PageServerLoad = async ({ url, locals: { supabase } }) => {
 
 	}
 
+	if (!supabase.auth.getUser()){
+		return redirect(303, '/welcome')
+	}
+
 };
 
 

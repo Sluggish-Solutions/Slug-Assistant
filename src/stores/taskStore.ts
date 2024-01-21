@@ -1,7 +1,9 @@
+import { Pi } from 'lucide-svelte'
 import type { Writable } from 'svelte/store'
 import { writable } from 'svelte/store'
 // import { localStorageStore } from '@skeletonlabs/skeleton'
 export const curr_user_id = writable('')
+import { get } from 'svelte/store'
 export const convo_id = writable('')
 export const first_time = writable(true)
 
@@ -166,7 +168,76 @@ export const toggle_completed_today = (id: number) => {
 	})
 }
 
-export const get_details = (id: number) => {
+export const get_details = () => {
 	// get associated categories
 	// basically a big detailed summary of users progress
+	// get dictionary of the values from the groups
+	let all_tasks = get(tasks);
+
+	let health_total: number = 0.00001;
+	let mind_total: number = 0.00000001;
+	let academ_total: number = 0.000000001;
+	let chores_total: number = 0.00000001;
+	let health_comp: number = 0;
+	let mind_comp: number = 0;
+	let academ_comp: number = 0;
+	let chores_comp: number = 0;
+	// tasks in each category / tasks completed 
+	all_tasks.forEach(element => {
+		console.log(element)
+		if (element.enabled) {
+			if (element.group === "Chores") {
+				chores_total += 1;
+				if (element.completed_today) {
+					chores_comp += 1
+				}
+			}
+			if (element.group === "Mindfulness") {
+				mind_total += 1;
+				if (element.completed_today) {
+					mind_comp += 1
+				}
+			}
+			if (element.group === "Academics") {
+				academ_total += 1;
+				if (element.completed_today) {
+					academ_comp += 1
+				}
+			}
+			if (element.group === "Health") {
+				health_total += 1;
+				if (element.completed_today) {
+					health_comp += 1
+				}
+			}
+		}
+
+	});
+	console.log('health', health_total)
+	console.log( {
+		health: health_comp / health_total,
+		mind: mind_comp / mind_total,
+		academic: academ_comp / academ_total,
+		chores: chores_comp / chores_total
+	})
+	let health_avg =(health_comp / health_total) || 0
+	let mind_avg = mind_comp / mind_total || 0
+	let academic_avg = academ_comp / academ_total || 0
+	let chore_avg =chores_comp / chores_total || 0
+	return {
+		health: health_avg || 0, 
+		mind: mind_avg || 0,
+		academic: academic_avg || 0,
+		chores: chore_avg || 0
+	}
+
+
+
+
+
+
+
+
+
+
 }
