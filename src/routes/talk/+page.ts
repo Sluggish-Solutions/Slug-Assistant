@@ -80,6 +80,7 @@ const { supabase, session } = await parent();
 	console.log('curr_convo_id', curr_convo_id)
 	const preMessagesQuery = await supabase.from('messages')
 		.select(`*, author(*)`)
+		//@ts-expect-error
 		.eq("conversation_id",curr_convo_id )
 //@ts-expect-error fuck you
 		.eq(`conversation_id`, parseInt(curr_convo_id))
