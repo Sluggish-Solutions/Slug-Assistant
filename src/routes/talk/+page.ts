@@ -86,7 +86,7 @@ let messageFeed = [
 		avatar: 14,
 		name: 'Michael',
 		timestamp: 'Yesterday @ 2:45pm',
-		message: 'Some message text.',
+		message: 'Some message text.', 
 		color: 'variant-soft-primary'
 	}
 ];

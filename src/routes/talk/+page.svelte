@@ -27,7 +27,7 @@ function addMessage(): void {
 	messageFeed = [...messageFeed, newMessage];
 	// Clear the textarea message
 	currentMessage = '';
-	// Smoothly scroll to the bottom of the feed
+	// Smoothly scroll to the bottom of the feed 
 	setTimeout(() => { scrollChatBottom('smooth'); }, 0);
 } */
 
