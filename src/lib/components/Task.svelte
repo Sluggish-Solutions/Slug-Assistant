@@ -17,7 +17,7 @@
 <label
 	class="flex justify-center items-center w-full rounded-lg {done
 		? 'line-through'
-		: ''} decoration-[3px] decoration-orange-300 text-2xl cursor-pointer transition-all duration-300 ease-in-out hover:text-orange-300 bg-black py-5"
+		: ''} decoration-[3px] decoration-orange-300 text-xl cursor-pointer transition-all duration-300 ease-in-out hover:text-orange-300 bg-black py-5"
 >
 	{#if visible}
 		<h1 in:fly={{ x: -300, duration: 2000 }} out:fade>
