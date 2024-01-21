@@ -18,7 +18,7 @@
 	}
 </script>
 
-<main class="p-3">
+<main class="w-full">
 	<table class="m-auto">
 		<tr>
 			<th>Task Name</th>
@@ -31,9 +31,8 @@
 		<TaskTableRow bind:taskObj={taskObj_sample} />
 	</table>
 
-	<button
-		class="btn variant-filled-primary"
-		on:click={saveSettings}>Save Settings</button
+	<button class="btn variant-filled-primary" on:click={saveSettings}
+		>Save Settings</button
 	>
 </main>
 
