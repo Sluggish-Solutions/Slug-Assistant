@@ -2,8 +2,8 @@
 	import { fade, fly } from 'svelte/transition'
 	import { onMount } from 'svelte'
 
-	export let task: string
-	export let done: boolean
+	export let name: string
+	export let completed: boolean
 
 	let visible = false
 
@@ -12,25 +12,21 @@
 	})
 </script>
 
-<!-- <div class='flex justify-center'> -->
-
 <label
-	class="flex justify-center items-center w-full rounded-lg {done
+	class="flex justify-center items-center w-full rounded-lg {completed
 		? 'line-through'
 		: ''} decoration-[3px] decoration-orange-300 text-xl cursor-pointer transition-all duration-300 ease-in-out hover:text-orange-300 bg-black py-5"
 >
 	{#if visible}
 		<h1 in:fly={{ x: -300, duration: 2000 }} out:fade>
-			{task}
+			{name}
 		</h1>
 	{/if}
 
 	<input
 		type="checkbox"
-		bind:checked={done}
-		on:click={() => (done = !done)}
+		bind:checked={completed}
+		on:click={() => (completed = !completed)}
 		class="hidden"
 	/>
-	<span class="checkmark"></span>
 </label>
-<!-- </div> -->
