@@ -4,7 +4,7 @@ import { localStorageStore } from '@skeletonlabs/skeleton'
 import { get } from 'svelte/store'
 export const curr_user_id = writable('')
 export const convo_id = writable('')
-
+export const first_time = writable(true);
 const prev_messages: Writable<Array<string>> = localStorageStore(
 	'previous_messages',
 	['', 'wahoooooo', 'penis!!!!!!!', 'i love mommmyyy!!!!']

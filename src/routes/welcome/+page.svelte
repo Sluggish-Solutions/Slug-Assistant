@@ -2,6 +2,16 @@
 // v0 by Vercel.
 // https://v0.dev/t/7zuRuQmoFNU
 -->
+<script>
+    import { onMount } from "svelte";
+import {first_time, setUserId } from "../../stores/userStore";
+import { get } from "svelte/store";
+	onMount(()=>{
+
+		first_time.set(false)
+	})
+
+</script>
 <div class="flex flex-col min-h-screen">
 	
 	<main class="flex-1">
