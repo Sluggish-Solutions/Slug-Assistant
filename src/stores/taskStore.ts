@@ -9,36 +9,135 @@ export type Task = {
 	id: number
 	task_name: string
 	enabled: boolean
-	completed_today: boolean,
-	group: string,
+	completed_today: boolean
+	group: string
 	last_updated: string
 	success: number
-	occurences: number
+	occurrences: number
 }
 
 export const tasks: Writable<Task[]> = writable([
 	{
 		id: 1,
-		task_name: 'Brush Teeth',
+		task_name: 'Water Intake',
 		enabled: false,
 		completed_today: false,
 		group: 'Health',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurences: 0,
+		occurrences: 0,
 	} as Task,
 	{
 		id: 2,
-		task_name: 'Wash Face',
+		task_name: 'Food Intake',
 		enabled: false,
 		completed_today: false,
 		group: 'Health',
 		last_updated: `${Date.now()}`,
 		success: 0,
-		occurences: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 3,
+		task_name: 'Exercise',
+		enabled: false,
+		completed_today: false,
+		group: 'Health',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 4,
+		task_name: 'Meditation',
+		enabled: false,
+		completed_today: false,
+		group: 'Mindfulness',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 5,
+		task_name: 'Reflection',
+		enabled: false,
+		completed_today: false,
+		group: 'Mindfulness',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 6,
+		task_name: 'Socializing',
+		enabled: false,
+		completed_today: false,
+		group: 'Mindfulness',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 7,
+		task_name: 'Lectures',
+		enabled: false,
+		completed_today: false,
+		group: 'Academics',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 8,
+		task_name: 'Study/Homework',
+		enabled: false,
+		completed_today: false,
+		group: 'Academics',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 9,
+		task_name: 'Leetcode',
+		enabled: false,
+		completed_today: false,
+		group: 'Academics',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 10,
+		task_name: 'Laundry',
+		enabled: false,
+		completed_today: false,
+		group: 'Chores',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 11,
+		task_name: 'Cleaning',
+		enabled: false,
+		completed_today: false,
+		group: 'Chores',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
+	} as Task,
+	{
+		id: 12,
+		task_name: 'Trash Disposal',
+		enabled: false,
+		completed_today: false,
+		group: 'Chores',
+		last_updated: `${Date.now()}`,
+		success: 0,
+		occurrences: 0,
 	} as Task,
 ])
-
 
 // updated to user's version on load if there exists
 export const toggle_task = (id: number) => {
@@ -70,6 +169,4 @@ export const toggle_completed_today = (id: number) => {
 export const get_details = (id: number) => {
 	// get associated categories
 	// basically a big detailed summary of users progress
-
-
-} 
+}
