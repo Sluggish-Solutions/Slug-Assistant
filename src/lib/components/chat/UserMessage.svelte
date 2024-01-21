@@ -19,3 +19,4 @@
 	<Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" width="w-12" />
 </div>
 					
+ 

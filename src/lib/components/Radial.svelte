@@ -14,7 +14,6 @@
 			<ProgressRadial meter={color} value={progress}
 				>{progress}%</ProgressRadial>
 		</div>
-	</div>
 	<div class="z-[-10]">
 		<ProgressRadial meter={color} value={progress}>{progress}%</ProgressRadial
 		>
