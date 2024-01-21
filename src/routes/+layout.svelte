@@ -1,6 +1,5 @@
 <script>
 	import Header from '../lib/components/home/Header.svelte'
-	import Sidebar from '../lib/components/home/Sidebar.svelte'
 	import '../app.postcss'
 	import { onMount } from 'svelte'
 
@@ -33,7 +32,9 @@
 
 <div class="m-auto sm:p-5">
 	
-	<Header/>
+	<div ><Header/></div>
+	
+
 	<slot />
 </div>
 
