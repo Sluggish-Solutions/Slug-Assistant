@@ -1,7 +1,7 @@
 <script>
 	import Header from '../lib/components/home/Header.svelte'
 	import Sidebar from '../lib/components/home/Sidebar.svelte'
-	import '../app.postcss';
+	import '../app.postcss'
 	import { onMount } from 'svelte'
 
 	$: open = false
@@ -31,6 +31,9 @@
 	})
 </script>
 
-<Sidebar bind:open/>
-<Header bind:sidebar={open}/>
-<slot />
+<div class="m-auto sm:p-5">
+	<Sidebar bind:open={open} />
+	<Header bind:sidebar={open} />
+
+	<slot />
+</div>
