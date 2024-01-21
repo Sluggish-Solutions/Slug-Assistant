@@ -7,7 +7,7 @@
 	import { onMount } from 'svelte'
 	import { fly } from 'svelte/transition'
 	import { quintOut } from 'svelte/easing'
-  import { tasks } from '$stores/taskStore'
+	import { tasks } from '$stores/taskStore'
 	import Type from '$lib/components/Type.svelte'
 
 	let condition = false
@@ -200,13 +200,15 @@
 	let notification: Notification
 	let interval: NodeJS.Timeout
 	let num = 0
+	let enabledTasks
 
 	onMount(() => {
 		const savedTasks = localStorage.getItem('tasks')
 		if (savedTasks) {
 			tasks.set(JSON.parse(savedTasks))
-		} 
-    
+		}
+
+
 		condition = true
 
 		document.addEventListener('visibilitychange', () => {
@@ -252,7 +254,6 @@
 			>
 		</div>
 	</div>
-
 	{#if condition}
 		<div
 			in:fly={{ x: 100, duration: 3000, easing: quintOut }}

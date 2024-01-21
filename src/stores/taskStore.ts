@@ -159,13 +159,17 @@ export const edit_task = (idx: number, editedTask: Task) => {
 
 }
 
-export const delete_task = (idx: number) => {
-
-	let old_tasks = [...get(tasks)]
-	if (idx > -1) { // only splice array when item is found
-		old_tasks.splice(idx, 1); // 2nd parameter means remove one item only
-	}
-	tasks.set(old_tasks);
+export const toggle_completed = (id: number) => {
+	tasks.update((tasks) => {
+		const updatedTasks = tasks.map((task) => {
+			if (task.id === id) {
+				return { ...task, completed_today: !task.completed_today }
+			}
+			return task
+		})
+		localStorage.setItem('tasks', JSON.stringify(updatedTasks))
+		return updatedTasks
+	})
 }
 
 export const getTasks = () => {
