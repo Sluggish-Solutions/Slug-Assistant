@@ -1,6 +1,7 @@
 <script lang="ts">
   import { fade, fly } from "svelte/transition";
   import { onMount } from "svelte";
+  import next_mommy from '$lib/components/SlugMommy.svelte'
 
 	export let name: string
 	export let completed: boolean
@@ -26,7 +27,7 @@
   <input
     type="checkbox"
     bind:checked={completed}
-    on:click={() => (completed = !completed)}
+    on:click={() => {completed = !completed; next_mommy()}}
     class="hidden"
   />
   <span class="checkmark"></span>

@@ -11,7 +11,6 @@
 
 	function scrollChatBottom(behavior?: ScrollBehavior): void {
 		console.log(elemChat.scrollHeight)
-		console.log(elemChat.scrollTop(200))
 		elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 	}
 	/* example of adding message to array and doing that

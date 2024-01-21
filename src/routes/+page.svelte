@@ -278,7 +278,7 @@
 	</div>
 
 	<div class="lg: w-full max-h-screen">
-		<SlugMommy />
+		<SlugMommy  />
 
 		<Typewriter text={quote} />
 		
