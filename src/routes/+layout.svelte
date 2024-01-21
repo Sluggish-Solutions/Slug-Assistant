@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { handle } from './../hooks.server.ts';
 	import { tasks } from '$stores/taskStore'
 	import Header from '../lib/components/home/Header.svelte'
 	import '../app.postcss'
@@ -26,12 +27,14 @@
 			registration.update()
 		}
 	}
+	
+	// tasks.set(JSON.parse(localStorage.getItem('tasks')))
 
 	onMount(async () => {
-		const savedTasks = localStorage.getItem('tasks')
-		if (savedTasks) {
-			tasks.set(JSON.parse(savedTasks))
-		}
+		// const savedTasks = localStorage.getItem('tasks')
+		// if (savedTasks) {
+		// 	tasks.set(JSON.parse(savedTasks))
+		// }
 
 		detectSWUpdate()
 	})

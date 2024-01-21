@@ -204,14 +204,14 @@
 
 	onMount(() => {
 		// uses user-stored tasks if available
-		// const savedTasks = localStorage.getItem('tasks')
-		// if (savedTasks) {
-		// 	tasks.set(JSON.parse(savedTasks))
-		// }
+		const savedTasks = localStorage.getItem('tasks')
+		if (savedTasks) {
+			tasks.set(JSON.parse(savedTasks))
+		}
 
 		// resets completed_today to false for all tasks
 		// for every new day
-		reset_completed_today()
+		// reset_completed_today()
 
 		condition = true
 
@@ -254,7 +254,7 @@
 
 		<div class="flex flex-col gap-3">
 			<button class="btn variant-filled-tertiary" on:click={reqNotif}
-				>Turn On Your Notification</button
+				>Turn On Focus Notification</button
 			>
 		</div>
 	</div>

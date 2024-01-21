@@ -1,12 +1,21 @@
 <script lang="ts">
-	import { toggle_completed_today } from '$stores/taskStore'
+	import { tasks, toggle_completed_today } from '$stores/taskStore'
 	import { fade, fly } from 'svelte/transition'
 	import { onMount } from 'svelte'
-  import next_mommy from '$lib/components/SlugMommy.svelte'
+	import next_mommy from '$lib/components/SlugMommy.svelte'
 
 	export let task: any
 
 	let visible = false
+	let completed_today = false
+
+	tasks.subscribe((value) => { 
+		for (let item of value) {
+			if (item.id === task.id) {
+				completed_today = item.completed_today
+			}
+		}
+	})
 
 	onMount(() => {
 		visible = true
@@ -26,8 +35,8 @@
 
 	<input
 		type="checkbox"
-		bind:checked={task.completed_today}
-		on:click={() => (toggle_completed_today(task.id))}
+		bind:checked={completed_today}
+		on:click={() => toggle_completed_today(task.id)}
 		class="hidden"
 	/>
 	<span class="checkmark"></span>
