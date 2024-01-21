@@ -221,6 +221,8 @@
 	<div class="lg: w-full max-h-screen">
 		<SlugMommy />
 
+		<Typewriter text={quote} />
+		
 		<div class="flex flex-col gap-3">
 			<button class="btn variant-filled-tertiary" on:click={reqNotif}
 				>Turn On Your Notif</button
@@ -233,7 +235,7 @@
 			>
 		</div>
 
-		<Typewriter text={quote} />
+		
 	</div>
 
 	<div class="lg: w-full max-h-screen">

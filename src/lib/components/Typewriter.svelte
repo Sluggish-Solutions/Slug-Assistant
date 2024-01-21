@@ -33,9 +33,10 @@
 		};
 	}
 </script>
-
-{#if visible}
-	<p transition:typewriter>
-        {text}
-	</p>
-{/if}
+<div class="flex justify-center items-center w-full h-20 bg-black rounded-lg my-10">
+	{#if visible}
+		<p transition:typewriter>
+			{text}
+		</p>
+	{/if}
+</div>
