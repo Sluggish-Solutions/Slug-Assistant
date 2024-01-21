@@ -37,18 +37,21 @@ export interface Database {
       }
       messages: {
         Row: {
+          author: string | null
           body: string | null
           conversation_id: number
           created_at: string
           id: string
         }
         Insert: {
+          author?: string | null
           body?: string | null
           conversation_id: number
           created_at?: string
           id?: string
         }
         Update: {
+          author?: string | null
           body?: string | null
           conversation_id?: number
           created_at?: string
@@ -56,10 +59,55 @@ export interface Database {
         }
         Relationships: [
           {
+            foreignKeyName: "messages_author_fkey"
+            columns: ["author"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "messages_conversation_id_fkey"
             columns: ["conversation_id"]
             isOneToOne: false
             referencedRelation: "conversation"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      tasks: {
+        Row: {
+          active: boolean | null
+          completions: number | null
+          created_at: string
+          days_to_repeat: number | null
+          id: string
+          name: string
+          user: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          completions?: number | null
+          created_at?: string
+          days_to_repeat?: number | null
+          id?: string
+          name: string
+          user?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          completions?: number | null
+          created_at?: string
+          days_to_repeat?: number | null
+          id?: string
+          name?: string
+          user?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tasks_user_fkey"
+            columns: ["user"]
+            isOneToOne: false
+            referencedRelation: "users"
             referencedColumns: ["id"]
           }
         ]

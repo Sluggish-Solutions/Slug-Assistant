@@ -5,6 +5,7 @@
 		active: boolean
 		last_update: string
 		user_id: string // already know
+		scheduled_time: string
 		days_to_repeat: number
 		success: number
 		occurences: number
@@ -23,13 +24,14 @@
 
 <tr>
 	<th>{taskObj.name}</th>
-	<th>{taskObj.active}</th>
+	<th>{taskObj.active}</th> <!-- switch -->
 	<th>{taskObj.last_update}</th>
+	<th>{taskObj.scheduled_time}</th>
 	<th>{taskObj.days_to_repeat}</th>
 </tr>
 
 <style>
-	input {
+	/* input {
 		background-color: #b5d1ff;
 		border: 0.5px solid #f4a460;
 		height: 1.6rem;
@@ -38,5 +40,5 @@
 		padding-right: 0.4rem;
 		width: 8.62rem;
 		font-family: 'Roboto', serif;
-	}
+	} */
 </style>

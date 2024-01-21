@@ -50,9 +50,6 @@ export const POST: RequestHandler = async ({ locals, request }) => {
         .insert({author: user_id, body:new_message, conversation_id: convo_id})
     console.log("user thing", user_message_send)
         if (user_message_send.error){
-            return fail(404, {
-                error: "user isnt signed in"
-            })
         }
         console.log("what we are sending", user_message_send)
         let mommy_message_send = await locals.supabase
