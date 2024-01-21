@@ -53,7 +53,7 @@ export const toggle_task = (id: number) => {
 	})
 }
 
-export const toggle_completed = (id: number) => {
+export const toggle_completed_today = (id: number) => {
 	tasks.update((tasks) => {
 		const updatedTasks = tasks.map((task) => {
 			if (task.id === id) {
@@ -66,7 +66,7 @@ export const toggle_completed = (id: number) => {
 	})
 }
 
-export const getDetails = (id: number) => {
+export const get_details = (id: number) => {
 	// get associated categories
 	// basically a big detailed summary of users progress
 
