@@ -1,5 +1,9 @@
-<!-- <svg width=auto height=30>
-	<text x=0 y=20>Hi</text>
-</svg> -->
+<a href="/" class="border-[3px] hover:border-orange-300 rounded-full m-auto">
+	<img src="main.webp" alt="logo" class="h-16 rounded-full active:scale-75 ease-in-out duration-300"/>
+</a>
 
-<img src="main.webp" alt="logo" class="h-14 self-center rounded-2xl">
+<style>
+	* {
+		box-sizing: border-box;
+	}
+</style>
