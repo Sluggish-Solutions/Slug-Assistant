@@ -8,6 +8,7 @@
             user_id: string,
             active: boolean,
             days_to_repeat: number,
+    		scheduled_time: string
             success: number,
             occurences: number,
         }
