@@ -3,7 +3,7 @@
 </script>
 
 <button class="cursor-pointer p-4 border-[3px] hover:border-orange-300 rounded-3xl" class:open on:click={() => open = !open}>
-	<svg width=32 height=24>
+	<svg width=32 height=24 class="hover:text-orange-300">
 		<line id="top" x1=0 y1=2  x2=32 y2=2/>
 		<line id="middle" x1=0 y1=12 x2=24 y2=12/>
 		<line id="bottom" x1=0 y1=22 x2=32 y2=22/>
