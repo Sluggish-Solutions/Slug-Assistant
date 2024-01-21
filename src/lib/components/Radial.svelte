@@ -16,8 +16,8 @@
 		</div>
 	</div>
 
-	<div class="flex mt-10 w-full justify-center">
-		<div class="mr-10 flex just">
+	<div class="flex mt-10 w-full justify-center ">
+		<div class="mr-10 flex rounded-lg">
 			<h1 class="mt-12 text-1xl">Mindfullness:</h1>
 		</div>
 		<div class="z-[-10]">
@@ -33,6 +33,17 @@
 		</div>
 		<div class="z-[-10]">
 			<ProgressRadial meter="stroke-red-400" value={progress}
+				>{progress}%</ProgressRadial
+			>
+		</div>
+	</div>
+
+	<div class="flex mt-10 w-full justify-center">
+		<div class="mr-10">
+			<h1 class="mt-12">Chores:</h1>
+		</div>
+		<div class="z-[-10]">
+			<ProgressRadial meter="stroke-purple-400" value={progress}
 				>{progress}%</ProgressRadial
 			>
 		</div>
