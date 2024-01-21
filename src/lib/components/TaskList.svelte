@@ -13,10 +13,12 @@
 	})
 
 	let todos = [
-		{ text: 'Workout', done: false },
+		{ text: 'Brush Teeth', done: false },
 		{ text: 'Shower', done: false },
 		{ text: 'Homework', done: false },
 		{ text: 'Laundry', done: false },
+    { text: 'Food', done: false },
+    {text: 'Water', done: false} 
 	]
 </script>
 
@@ -28,7 +30,7 @@
 		<section
 			class="flex items-center justify-center bg-black h-fit py-5 px-8 rounded-lg m-5 mx-3 gap-5"
 		>
-			<h1>Tasks</h1>
+			<h1 class="text-3xl">Tasks</h1>
 			<!-- <button on:click={createNewTask}>
 				<PlusCircle />
 			</button> -->

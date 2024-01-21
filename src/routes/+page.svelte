@@ -102,8 +102,13 @@
 	})
 </script>
 
-<div class="flex">
-	<div class="w-1/3 max-h-screen">
+<div class="flex flex-col sm:flex-row">
+	<div class="lg: w-full max-h-screen ">
+		<TaskList />
+	</div>
+	
+	
+	<div class="lg: w-full max-h-screen">
 		<SlugMommy />
 
 		<div class="flex flex-col gap-3">
@@ -114,10 +119,8 @@
 			>
 		</div>
 	</div>
-	<div class="w-1/3 max-h-screen">
+
+	<div class="lg: w-full max-h-screen">
 		<Timer />
-	</div>
-	<div class="w-1/3 max-h-screen">
-		<TaskList />
 	</div>
 </div>
