@@ -241,7 +241,10 @@
 
 	console.log('statistics', stats)
 
-
+	tasks.subscribe(()=>{
+	stats = get_details()
+	})
+	
 	export const refreshStats = () => {
 		stats = get_details()
 	}
