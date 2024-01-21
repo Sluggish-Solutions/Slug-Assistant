@@ -14,9 +14,6 @@ const openai = new OpenAI({
     apiKey: OPEN_AI_KEY || '',
 });
 
-export const config: Config = {
-    runtime: 'edge'
-};
 
 function manageTokenCount(newMessage, messageHistory) {
     let tokenCount = getTokens(newMessage.content);
@@ -39,8 +36,7 @@ function manageTokenCount(newMessage, messageHistory) {
     // messageHistory.push(newMessage);
     return messageHistory;
 }
-
-export const POST: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ locals, request }) => {
     try {
         const requestData = await request.json();
         const { conversation_id, messages } = requestData;
