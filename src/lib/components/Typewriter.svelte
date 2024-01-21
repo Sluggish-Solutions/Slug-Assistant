@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
 
     export let text: string
+	
 
 	let visible = false;
     onMount(() => {
