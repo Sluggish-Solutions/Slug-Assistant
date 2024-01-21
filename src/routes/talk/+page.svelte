@@ -3,6 +3,8 @@
 	import UserMessage from "$lib/components/chat/UserMessage.svelte";
 	import MommyMessage from "$lib/components/chat/MommyMessage.svelte";
 	let currentMessage = "";
+
+	console.log(data);
 let elemChat: HTMLElement;
 
 function scrollChatBottom(behavior?: ScrollBehavior): void {
@@ -57,5 +59,5 @@ import {useChat} from 'ai/svelte'
 		placeholder="Write a message..."
 		rows="1"
 	/>
-	<button class="variant-filled-primary" on:click={()=>{console.log(currentMessage)}}>Send</button>
+	<button class="variant-filled-primary" on:click={async()=>{data.sendMessage(currentMessage)}}>Send</button>
 </div>
