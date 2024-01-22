@@ -25,5 +25,5 @@
   <img src={URL} alt="notworking" class="display:{display1}" />
 </div> -->
 <div class="flex w-full justify-center py-10">
-  <img src="sprites/idle.gif" alt="notworking"/>
+  <img src="sprites/run.gif" alt="notworking"/>
 </div>
